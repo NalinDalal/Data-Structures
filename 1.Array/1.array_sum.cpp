@@ -2,6 +2,7 @@
 
 int main(){
     int i=1,n;
+	std::cout<<"Enter no of Elements in array: ";
     std::cin>>n;
 
     int a[n];
