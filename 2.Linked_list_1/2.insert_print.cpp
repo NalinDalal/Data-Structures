@@ -29,3 +29,8 @@ int main(){
     }
     return 0;
 }
+/*
+the list takes first no of elements to keep in
+then takes all input of the each node's data
+after the insertion is done it just logs out/give output of the 1st and last element
+*/
