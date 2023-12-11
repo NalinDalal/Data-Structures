@@ -10,6 +10,8 @@ we get the first smallest at last
 
 no of elements(n)=(n-1)iteration b/f we get one array
 ith iteration = n-i iteration
+
+O(n^2) maybe
 */
 
 #include <iostream>
