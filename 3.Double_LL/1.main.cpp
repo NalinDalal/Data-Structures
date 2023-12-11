@@ -58,8 +58,8 @@ void deleteAtHead(node* &head){
 
     delete todelete;
 }
-
-void deletion(node* &head,int pos){ \\position of node to be deleted
+//position of node to be deleted
+void deletion(node* &head,int pos){
     if(pos==1){
         deleteAtHead(head);
         return;
@@ -74,7 +74,7 @@ void deletion(node* &head,int pos){ \\position of node to be deleted
 
     temp->prev->next=temp->next;
 
-    if(temp->nwext!=NULL){
+    if(temp->next!=NULL){
     temp->next->prev=temp->prev;}
 
     delete temp;
