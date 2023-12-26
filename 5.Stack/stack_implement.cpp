@@ -17,6 +17,7 @@ void pop(){
         cout<<"Stack Underflow"<<endl;
     else{
         cout<<"the popped element is: "<<stack[top];
+        cout<<endl;
         top--;
     }    
 }
@@ -29,7 +30,7 @@ void display(){
             cout<<endl;
     }
     else{
-        cout<<"Stack is Empty";
+        cout<<"Stack is Empty"<<endl;
     }
 }
 
