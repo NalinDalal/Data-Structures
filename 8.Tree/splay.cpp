@@ -84,5 +84,12 @@ int main(int argc, char* argv[]) {
     }
     splayTree.run(fIn,fileName);
     fIn.close();
+
+    // int wordCnt;
+    // cout<<wordCnt<<endl;
+
+    // int size=wordCnt*4;
+    // cout<<"The fucking size of file is "<<size<<endl;
+
     return 0;
 }
