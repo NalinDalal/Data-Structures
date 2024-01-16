@@ -1,4 +1,18 @@
 //bellmann ford algo
+/*
+From a source vertx v,find shortest dist to all other node in graph
+Idea
+1. Initially d[v] = 0 and for all other elements d[] = ∞
+2. In each pass, relax all the edges.
+i.e for edge (a,b) having weight w,
+d[b] = min(d[b], d[a] + w)
+3. Assuming no negative edge cycle, since there are n vertices, shortest path can only contain 'n-1' edges. Therefore, we will get our answer in at most 'n-1' passes.
+
+What makes it better than dijkstra
+Negative Edges!!
+→ It will work for negative edges and negative cycles.
+→ It can detect negative cycles as well.
+*/
 #include <iostream>
 #include <vector>
 #include <climits>
