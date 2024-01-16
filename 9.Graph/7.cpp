@@ -7,64 +7,83 @@ Select an arbitrary vertex s to start the tree from.
         Select the edge of minimum weight between a tree and nontree vertex.
         Add the selected edge and vertex to the tree.
 */
-#include <iostream>
+// Visit www.neon.rip for more!
+
 #include <vector>
-#include <stack>
-#include <algorithm>
-#include <set>
+#include <unordered_map>
+#include <unordered_set>
+#include <utility>
+#include <queue>
+#include <iostream>
 
-using namespace std;
-int n,m;
-const int N=1e5+3;
+using std::vector;
+using std::unordered_map;
+using std::unordered_set;
+using std::pair;
+using std::tuple;
+using std::get;
+using std::make_tuple;
+using std::make_pair;
+using std::priority_queue;
+using std::greater;
 
-vector<pair<int,int> > g[N];
-int cost=0;
-
-vector<int> dist(N),parent(N);
-vector<bool> vis(N);
-const int INF=1e9;
-
-struct ComparePairs {
-    bool operator()(const pair<int, int>& a, const pair<int, int>& b) const {
-        return a.first < b.first || (a.first == b.first && a.second < b.second);
+// Given a list of edges of a connected undirected graph,
+// with nodes numbered from 1 to n,
+// return a list edges making up the minimum spanning tree.
+vector<pair<int, int>> mst(vector<vector<int> >& edges, int n) {
+    unordered_map<int, vector<pair<int, int> > > adj;
+    for (int i = 1; i < n + 1; i++) {
+        adj[i] = vector<pair<int, int> >();
     }
-};
+    for (vector<int> edge : edges) {
+        int n1 = edge[0], n2 = edge[1], weight = edge[2];
+        adj[n1].push_back(make_pair(n2, weight));
+        adj[n2].push_back(make_pair(n1, weight));
+    }
 
-void primsMST(int source){
-    for(int i=0;i<n;i++){dist[i]=INF;}
-    set<vector<int> > s;
-    dist[source]=0;
-    s.insert({0,source});
-    while(!s.empty()){
-        auto x=*(s.begin());
-        s.erase(x);
-        vis[x.second]=true;
-        int u=x.second;
-        int v=parent[x.second];
-        int w=x.first;
-        cout<<u<<" "<<v<<" "<<w<<"\n";
-        cost+=w;
-        for(auto it:g[x.second]){
-            if(vis[it.first])
-                continue;
-            if(dist[it.first]>it.second){
-                s.erase({dist[it.first],it.first});
-                dist[it.first]=it.second;
-                s.insert({dist[it.first],it.first});
-                parent[it.first]=x.second;
+    // Initialize the heap by choosing a single node
+    // (in this case 1) and pushing all its neighbors.
+    priority_queue<tuple<int,int, int>, vector<tuple<int,int, int> >, greater<tuple<int, int, int> > > minHeap; 
+    for (pair<int, int> neighbor : adj[1]) {
+        int node = neighbor.first, weight = neighbor.second;
+        minHeap.push({weight, 1, node});
+    }
+    
+    vector<pair<int, int> > mst;
+    unordered_set<int> visit;
+    visit.insert(1);
+    while (visit.size() < n) {
+        tuple<int, int, int> cur = minHeap.top();
+        minHeap.pop();
+        int w1 = get<0>(cur), n1 = get<1>(cur), n2 = get<2>(cur);
+
+        if (visit.count(n2) > 0) {
+            continue;
+        }
+        mst.push_back({n1, n2});
+        visit.insert(n2);
+        for (pair<int, int> p : adj[n2]) {
+            int neighbor = p.first, weight = p.second;
+            if (visit.count(neighbor) == 0) {
+                minHeap.push({weight, n2, neighbor});
             }
         }
     }
+    return mst;
 }
 
-int32_t main(){
-    cin>>n>>m;
-    for(int i=0;i<m;i++){
-        int u,v,w;
-        cin>>u>>v>>w;
-        g[u].push_back({v,w});
-        g[v].push_back({u,w});
+int main(){
+    //vector<44>;
+    std::vector<int> myVector;
+
+    // Adding elements using push_back
+    myVector.push_back(1);
+    myVector.push_back(2);
+    myVector.push_back(3);
+
+    // Accessing elements
+    for (int i : myVector) {
+        std::cout << i << " ";
     }
-    primsMST(0);
-    cout<<cost;
+    return 0;
 }
