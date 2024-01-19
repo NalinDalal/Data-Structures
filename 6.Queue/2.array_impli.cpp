@@ -3,6 +3,7 @@
 using namespace std;
 
 class queue{
+    int n;
     int* arr; int front; int back;
 public:
     queue(){
@@ -42,7 +43,6 @@ public:
 };
     
 int main(){
-    int n;
 
     queue q;
     q.push(1);
