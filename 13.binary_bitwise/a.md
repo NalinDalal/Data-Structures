@@ -1,74 +1,157 @@
-RAM has sort of threshold, above threshold stores data, below doesn't
-stores in binary format
+### Binary Storage & Bit Manipulation Cheatsheet
 
-0->00
-1->01
-2->10
-3->11
-4->100
-5->101
-6->110
+- **RAM has a threshold**:  
+  - Above threshold → stores data  
+  - Below threshold → doesn’t  
+- Data is stored in **binary format**
 
-int a=5;
-int is 4 byte, memory allocated for variable a -> 0000 0101 0000 0000 0000 0000 0000 0000
+#### Binary Representation of Integers
 
-LSB on leftmost part, lower memeory address
-MSB on rightmost part, higher memory address
+```
+0 -> 00  
+1 -> 01  
+2 -> 10  
+3 -> 11  
+4 -> 100  
+5 -> 101  
+6 -> 110  
+```
 
-bit shift left->shift 1 bit to left
+---
 
+### Integer in Memory (Example)
+
+```cpp
+int a = 5;  // int is 4 bytes = 32 bits
+```
+
+Binary representation of `a` in memory:
+
+```
+0000 0101 0000 0000 0000 0000 0000 0000
+```
+
+- **LSB (Least Significant Bit)** → Leftmost part → Lower memory address  
+- **MSB (Most Significant Bit)** → Rightmost part → Higher memory address  
+
+---
+
+### Bit Shifting
+
+#### Left Shift (`<<`)
+
+```cpp
 0101 << 1
-->
-0101 + 1
+```
 
----
+→ Shifts 1 bit to the left  
+Result:
+```
+1010
+```
 
-    1010
+Left shift multiplies by power of two:
 
-bit shift right->shift 1 bit to right
+```
+a << n  →  a * 2ⁿ
+```
 
+#### Right Shift (`>>`)
+
+```cpp
 0101 >> 1
-->
-0101 - 1
+```
+
+→ Shifts 1 bit to the right  
+Result:
+```
+0010
+```
+
+Right shift divides by power of two:
+
+```
+a >> n  →  a / 2ⁿ
+```
 
 ---
 
-    0010
+### Bitwise Operators
 
-<< is left shift, doubles our number(ax2^n)
+| Operator | Name  | Description     |
+|----------|-------|-----------------|
+| `&`      | AND   | Both bits must be 1 |
+| `|`      | OR    | Either bit is 1     |
+| `^`      | XOR   | Bits must differ    |
+| `~`      | NOT   | Inverts the bits    |
 
-> > is right shift, halves our number(a/2^n)
+#### AND (`&`)
 
-& - AND
-| - OR
-^ - XOR
-~ - NOT
+```
+0 & 0 → 0  
+0 & 1 → 0  
+1 & 0 → 0  
+1 & 1 → 1
+```
 
-0 & 0 -> 0
-0 & 1 -> 0
-1 & 0 -> 0
-1 & 1 -> 1
+#### OR (`|`)
 
-0 | 1 -> 1
-1 | 0 -> 1
-1 | 1 -> 1
-0 | 0 -> 0
+```
+0 | 0 → 0  
+0 | 1 → 1  
+1 | 0 → 1  
+1 | 1 → 1
+```
 
-0 ^ 1 -> 1
-1 ^ 0 -> 1
-1 ^ 1 -> 0
-0 ^ 0 -> 0
+#### XOR (`^`)
 
-~ 1-> 0
-~ 0-> 1
+```
+0 ^ 0 → 0  
+0 ^ 1 → 1  
+1 ^ 0 → 1  
+1 ^ 1 → 0
+```
 
-say i want to check the 5th position from the rightmost bit
-so just take a 5th bit mask keep it 1, rest all 0, and take the bitwise AND with our number ->
+#### NOT (`~`)
 
-     10|1|00101
+```
+~1 → 0  
+~0 → 1
+```
 
-| $ 000 | 1   | 00000      |
-| ----- | --- | ---------- |
-| 000   | 1   | 00000 = 32 |
+---
 
-0
+### Bit Masking – Checking Specific Bit
+
+Say you want to check the **5th bit** (from the rightmost, 0-indexed):
+
+Given number:
+
+```
+10100101
+```
+
+Bit mask for 5th bit:
+
+```
+00010000  // Only 5th bit is 1
+```
+
+Apply AND:
+
+```
+  10100101
+& 00010000
+-----------
+  00000000  → 5th bit is not set
+```
+
+If result ≠ 0 → bit is **set**  
+If result = 0 → bit is **not set**
+
+Another example:
+
+| Binary      | Bit Pos | Mask       | Result (Decimal) |
+|-------------|---------|------------|------------------|
+| 00100101    | 5th     | 00010000   | 32               |
+```
