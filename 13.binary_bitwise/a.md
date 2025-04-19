@@ -155,3 +155,12 @@ Another example:
 |-------------|---------|------------|------------------|
 | 00100101    | 5th     | 00010000   | 32               |
 ```
+
+---
+
+### Increment - Decrement
+`x++`: use then increase
+`++x`: increase then use
+
+`post`: use then opr
+`pre`: opr then use
