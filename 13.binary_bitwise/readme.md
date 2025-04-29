@@ -223,6 +223,7 @@ a ^= b;
 - No temp variable needed
 - Works only on integer types
 
+`x & ~1` guarantees an `even number output` for any integer x
 ---
 
 ### Fixed-size Arrays in C++
