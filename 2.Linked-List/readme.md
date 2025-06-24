@@ -191,7 +191,7 @@ graph LR
 
 ```mermaid
 graph LR
-    A[head] --> B([1|next]) --> C([2|next]) --> D([3|next]) --> E[NULL]
+    A[head] --> B["1 →"] --> C["2 →"] --> D["3 →"] --> E[NULL]
     subgraph Pointers
         P[prev = NULL]
         CUR[curr = head]
