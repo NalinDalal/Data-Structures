@@ -61,7 +61,7 @@ head → [data] → [data] → NULL
 
 ```mermaid
 graph LR
-    A[head] --> B([1|next]) --> C([2|next]) --> D([3|next]) --> E[NULL]
+    A[head] --> B["1 →"] --> C["2 →"] --> D["3 →"] --> E[NULL]
 
 ```
 
@@ -78,7 +78,7 @@ graph LR
 
   ```mermaid
   graph LR
-  A[head] --> B([1|next]) --> C([2|next]) --> D([3|next])
+  A[head] --> B(["1->"]) --> C(["2->"]) --> D(["3->"])
   T[temp] --> C
 
   ```
@@ -102,10 +102,10 @@ graph LR
 ```mermaid
 graph LR
     subgraph Before
-        HEAD[head] --> A([10|next]) --> B([20|next])
+        HEAD[head] --> A(["10->"]) --> B(["20->"])
     end
     subgraph Insert 5 at Head
-        NEW([5|next]) --> A
+        NEW(["5->"]) --> A
         HEAD --> NEW
     end
 
