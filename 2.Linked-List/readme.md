@@ -56,7 +56,7 @@ It does **not store elements in contiguous memory**, unlike arrays.
 ### 📍 Example: Flow of Pointers
 
 ```
-head → [data|next] → [data|next] → NULL
+head → [data] → [data] → NULL
 ```
 
 ```mermaid
