@@ -1,0 +1,4 @@
+Huffman encoding is a lossless data compression algorithm.
+It assigns shorter codes to frequent characters.
+This example shows how Huffman compression works.
+
