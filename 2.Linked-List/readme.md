@@ -69,7 +69,7 @@ graph LR
 
   ```mermaid
   graph LR
-  A[head] --> B([1|next]) --> C([2|next])
+      A[head] --> B["1 →"] --> C["2 →"]
   T[temp] --> B
 
   ```
@@ -123,8 +123,8 @@ graph LR
 
 ```mermaid
 graph LR
-    HEAD[head] --> A([10|next]) --> B([20|next]) --> NULL1[NULL]
-    B --> C([30|next]) --> NULL2[NULL]
+    HEAD[head] --> A(["10->"]) --> B(["20->"]) --> NULL1[NULL]
+    B --> C(["30->"]) --> NULL2[NULL]
 
 ```
 
@@ -206,8 +206,8 @@ graph LR
 
 ```mermaid
 graph LR
-    P[prev] --> B([1|next])
-    CUR[curr] --> C([2|next]) --> D([3|next])
+    P[prev] --> B(["1->"])
+    CUR[curr] --> C(["2->"]) --> D(["3->"])
     B --> PNULL[NULL]
 
 ```
@@ -216,7 +216,7 @@ graph LR
 
 ```mermaid
 graph LR
-    NEWHEAD[head] --> D([3|next]) --> C([2|next]) --> B([1|next]) --> NULL
+    NEWHEAD[head] --> D(["3->"]) --> C(["2->"]) --> B(["1->"]) --> NULL
 
 ```
 
