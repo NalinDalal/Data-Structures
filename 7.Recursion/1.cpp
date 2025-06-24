@@ -1,12 +1,19 @@
 #include <iostream>
+using namespace std;
 
-void iterativeEquivalentOfTail(int i){
-    for(;i>0;i--){
-        std::cout<<i<<std::endl;
-    }
+void tailRecursivePrint(int i) {
+  if (i == 0)
+    return;
+  cout << i << endl;
+  tailRecursivePrint(i - 1); // Tail call: last action
 }
 
-int main(){
-    iterativeEquivalentOfTail(5);
-    std::cin.get();
+int main() {
+  int n = 5;
+
+  cout << "\nRecursive version:\n";
+  tailRecursivePrint(n);
+
+  cin.get();
+  return 0;
 }
