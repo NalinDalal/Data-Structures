@@ -14,71 +14,71 @@ Algorithm:
 */
 
 #include <iostream>
-#include <vector>
-#include <algorithm>
 
 using namespace std;
 
-struct Node{
-    int data;
-    struct Node* left;
-    struct Node* right;
+struct Node {
+  int data;
+  struct Node *left;
+  struct Node *right;
 
-    Node(int val){
-        data=val;
-        left=NULL;
-        right=NULL;
-    }
+  Node(int val) {
+    data = val;
+    left = NULL;
+    right = NULL;
+  }
 };
 
-int search(int inorder[],int start,int end,int val){
-    for(int i=start;i<=end;i++){
-        if(inorder[i]==val){
-            return i;
-        }
+int search(int inorder[], int start, int end, int val) {
+  for (int i = start; i <= end; i++) {
+    if (inorder[i] == val) {
+      return i;
     }
-    return -1;
+  }
+  return -1;
 }
 
-Node* buildTree(int postorder[],int inorder[],int start,int end){
-    static int idx=4;
+Node *buildTree(int postorder[], int inorder[], int start, int end) {
+  static int idx = 4;
 
-    //basecase
-    if(start>end){
-        return NULL;
-    }
+  // basecase
+  if (start > end) {
+    return NULL;
+  }
 
-    int val=postorder[idx];//value stored
-    idx--;
-    Node* curr=new Node(val);
-    //no need to create left,right subtree
-    if(start==end){
-        return curr;
-    }
-
-    int pos=search(inorder,start,end,val);
-    
-    //construction of tree
-    curr->right=buildTree(postorder,inorder,pos+1,end); //right subtree
-    curr->left=buildTree(postorder,inorder,start,pos-1);    //left subtree
-
+  int val = postorder[idx]; // value stored
+  idx--;
+  Node *curr = new Node(val);
+  // no need to create left,right subtree
+  if (start == end) {
     return curr;
+  }
+
+  int pos = search(inorder, start, end, val);
+
+  // construction of tree
+  curr->right = buildTree(postorder, inorder, pos + 1, end);  // right subtree
+  curr->left = buildTree(postorder, inorder, start, pos - 1); // left subtree
+
+  return curr;
 }
 
-void inorderPrint(Node* root){
-    if(root==NULL){return;}
-    inorderPrint(root->left);
-    cout<<root->data<<" ";
-    inorderPrint(root->right);
+void inorderPrint(Node *root) {
+  if (root == NULL) {
+    return;
+  }
+  inorderPrint(root->left);
+  cout << root->data << " ";
+  inorderPrint(root->right);
 }
-int main(){
-    int postorder[]={4,2,5,3,1};
-    int inorder[]={4,2,1,5,3};
+int main() {
+  int postorder[] = {4, 2, 5, 3, 1};
+  int inorder[] = {4, 2, 1, 5, 3};
 
-    //build tree
-    Node* root=buildTree(postorder,inorder,0,4);
-    inorderPrint(root);
-    cout<<"\n";
+  // build tree
+  Node *root = buildTree(postorder, inorder, 0, 4);
+  inorderPrint(root);
+  cout << "\n";
 
-    cin.get();
+  cin.get();
 }

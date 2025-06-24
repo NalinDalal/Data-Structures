@@ -1,6 +1,7 @@
 /*
 Given a binary tree,flatten it into linked list in-place.
-After flattening, left of each node should point to NULL,right contain next node in preorder sequence.
+After flattening, left of each node should point to NULL,right contain next node
+in preorder sequence.
 
 Binary Tree:
         1
@@ -29,45 +30,49 @@ Algorithm:
 #include <iostream>
 using namespace std;
 
-struct Node{
-    int data;
-    Node *left, *right;
-    Node(int val){
-        data=val;
-        left=NULL;
-        right=NULL;
-    }
+struct Node {
+  int data;
+  Node *left, *right;
+  Node(int val) {
+    data = val;
+    left = NULL;
+    right = NULL;
+  }
 };
 
-void flatten(Node* root){
-    if(root==NULL || (root->left==NULL && root->right==NULL){return;})
-    if(root->left!=NULL){
-        flatten(root->left);
+void flatten(Node *root) {
+  if (root == NULL || (root->left == NULL && root->right == NULL) { return; })
+    if (root->left != NULL) {
+      flatten(root->left);
 
-        Node* temp=root->right;
-        root->right=root->left;
-        root->left=NULL;
+      Node *temp = root->right;
+      root->right = root->left;
+      root->left = NULL;
 
-        Node* t=root->right;//phele ye root ka left that
-        while(t->right!=NULL){t=t->right;}
-        t->right=temp;
+      Node *t = root->right; // phele ye root ka left that
+      while (t->right != NULL) {
+        t = t->right;
+      }
+      t->right = temp;
     }
-    flatten(root->right);
+  flatten(root->right);
 }
 
-void inorderPrint(Node* root){
-    if(root==NULL){return;}
-    inorderPrint(root->left);
-    cout<<root->data<<" ";
-    inorderPrint(root->right);
+void inorderPrint(Node *root) {
+  if (root == NULL) {
+    return;
+  }
+  inorderPrint(root->left);
+  cout << root->data << " ";
+  inorderPrint(root->right);
 }
 
-int main(){
-    Node *root=new Node(4);
-    root->left=new Node(9);
-    root->right=new Node(5);
+int main() {
+  Node *root = new Node(4);
+  root->left = new Node(9);
+  root->right = new Node(5);
 
-    flatten(root);
-    inorderPrint(root);
-    cout<<endl;
+  flatten(root);
+  inorderPrint(root);
+  cout << endl;
 }
