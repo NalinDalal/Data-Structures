@@ -1,4 +1,4 @@
-# 🔢 Sorting Algorithms in C++
+# Sorting Algorithms in C++
 
 This document provides implementations and explanations for the following sorting algorithms:
 
@@ -11,11 +11,9 @@ This document provides implementations and explanations for the following sortin
 - [x] Merge Sort
 - [x] Radix Sort (for non-negative integers)
 
-Each algorithm is implemented in C++ and accompanied by a brief explanation, time complexities, and code.
-
 ---
 
-## ✅ Insertion Sort
+## Insertion Sort
 
 **Idea**: Pick elements one by one and insert them at the correct position in the already sorted part of the array.
 
@@ -41,7 +39,7 @@ void insertionSort(vector<int> &a) {
 
 ---
 
-## ✅ Selection Sort
+## Selection Sort
 
 **Idea**: Repeatedly select the minimum element from unsorted part and put it at the beginning.
 
@@ -63,7 +61,7 @@ void selectionSort(vector<int> &a) {
 
 ---
 
-## ✅ Bubble Sort
+## Bubble Sort
 
 **Idea**: Repeatedly swap adjacent elements if they are in the wrong order.
 
@@ -87,7 +85,7 @@ void bubbleSort(vector<int> &a) {
 
 ---
 
-## ✅ Shell Sort
+## Shell Sort
 
 **Idea**: Generalized version of insertion sort, improves performance using a gap sequence.
 
@@ -109,7 +107,7 @@ void shellSort(vector<int> &a) {
 
 ---
 
-## ✅ Heap Sort
+## Heap Sort
 
 **Idea**: Build a max-heap and repeatedly extract the maximum element.
 
@@ -140,7 +138,7 @@ void heapSort(vector<int> &a) {
 
 ---
 
-## ✅ Quick Sort
+## Quick Sort
 
 **Idea**: Choose a pivot, partition the array around it, and recurse.
 
@@ -170,7 +168,7 @@ void quickSort(vector<int> &a, int low, int high) {
 
 ---
 
-## ✅ Merge Sort
+## Merge Sort
 
 **Idea**: Divide the array into halves, sort each half, and merge them.
 
@@ -200,7 +198,7 @@ void mergeSort(vector<int> &a, int l, int r) {
 
 ---
 
-## ✅ Radix Sort
+## Radix Sort
 
 **Idea**: Sort numbers digit by digit using counting sort as subroutine.
 
@@ -231,7 +229,7 @@ void radixSort(vector<int> &a) {
 
 ---
 
-## 📌 Summary Table
+## Summary Table
 
 | Algorithm      | Best       | Average    | Worst      | Space    |
 | -------------- | ---------- | ---------- | ---------- | -------- |
@@ -246,7 +244,7 @@ void radixSort(vector<int> &a) {
 
 ---
 
-## ✨ Sample Usage
+## Sample Usage
 
 ```cpp
 int main() {
@@ -259,7 +257,7 @@ int main() {
 
 ---
 
-## 🧠 Tip:
+## Tip:
 
 Use:
 

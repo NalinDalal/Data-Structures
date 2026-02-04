@@ -1,8 +1,10 @@
 #include <cstring>
 #include <fstream>
 #include <iostream>
-using namespace std;
 #include "HuffmanCoding.h"
+
+using namespace std;
+
 int main(int argc, char *argv[]) {
   char fileName[30];
   HuffmanCoding Huffman;

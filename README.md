@@ -38,9 +38,11 @@ reading some topic:
 - Fenwick Trees (BIT)
 
 [9.Graph]
-[DFS]
-[Spanning Tree]
-[Shortest Path]
+
+- [DFS]
+- [Spanning Tree]
+- [Shortest Path]
+
 [10.Dynamic Programming]
 
 - Advanced DP
