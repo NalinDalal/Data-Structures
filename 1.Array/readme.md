@@ -1,4 +1,4 @@
-# Array Data Structures (C++ Revision Guide)
+# Array Data Structures
 
 ## 1. Introduction to Arrays
 
@@ -42,7 +42,11 @@ cout << v[0] << "\n"; // access elements, 1
 // size 10, initial value 0
 vector<int> v(10);
 
+//create empty vector
+vector<int> v;
 
+//size 10, initial value 5
+vector<int> v(10,5);
 ```
 
 ### 2.3 Multidimensional Arrays
@@ -94,7 +98,10 @@ cout << x << "\n";
 }
 
 // Insert at end
-vec.push_back(10);
+vec.push_back(10);  //T.C. - O(1)
+
+//returns last element in vector
+vec.back();
 
 // Delete last element
 vec.pop_back();
@@ -126,7 +133,8 @@ General method is to use a for loop that iterates through the elements of the ar
 
 ```cpp
 int linearSearch(int arr[], int n, int key) {
-    for (int i = 0; i < n; i++) if (arr[i] == key) return i;
+    for (int i = 0; i < n; i++)
+        if (arr[i] == key) return i;
     return -1;
 }
 ```
