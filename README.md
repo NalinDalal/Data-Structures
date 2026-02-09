@@ -13,42 +13,39 @@ reading some topic:
 
 [1.Array](./1.Array/readme.md)
 
-- Binary Search
-- 2 Pointers
-- Prefix Sums
+[2. Sorting Algorithms](./2.Sorting/readme.md)
 
-[2. Sorting Algorithms]
 [3. Strings]
-[13. Bit Maniuplation]
-[14. Math]
+[4. Bit Maniuplation]
+[5. Math]
 
 - Number Theory
 - Combinatorics
 
-[3. Linked List]
-[4. Stacks]
-[5. Queues]
-[6. Recursion]
-[7. BackTracking]
-[6. Hash Tables]
-[7. Trees/Binary Trees]
-[8.Binary Search Tree+Red-Black Tree]
+[6. Linked List]
+[7. Stacks]
+[8. Queues]
+[9. Recursion]
+[10. BackTracking]
+[11. Hash Tables]
+[12. Trees/Binary Trees]
+[13.Binary Search Tree+Red-Black Tree]
 
 - Segment Trees
 - Fenwick Trees (BIT)
 
-[9.Graph]
+[14.Graph]
 
 - [DFS]
 - [Spanning Tree]
 - [Shortest Path]
 
-[10.Dynamic Programming]
+[15.Dynamic Programming]
 
 - Advanced DP
 
-[11.Greedy]
-[12.NP Hardness]
+[16.Greedy]
+[17.NP Hardness]
 
 ## Problem Sheets & Resources
 
