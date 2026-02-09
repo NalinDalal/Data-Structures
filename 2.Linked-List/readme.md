@@ -1,12 +1,11 @@
-# 📚 Linked List – Complete Revision (With Algorithms)
+# Linked List
 
-## 📌 Table of Contents
+## Table of Contents
 
-1. [🔗 Introduction to Linked List](#1-introduction-to-linked-list)
-2. [🧠 Understanding Pointers & Referencing](#2-understanding-pointers--referencing)
-3. [📒 Types of Linked Lists](#3-types-of-linked-lists)
-4. [🛠 Core Operations (with Algorithms)](#4-core-operations-with-algorithms)
-
+1. [ Introduction to Linked List](#1-introduction-to-linked-list)
+2. [ Understanding Pointers & Referencing](#2-understanding-pointers--referencing)
+3. [ Types of Linked Lists](#3-types-of-linked-lists)
+4. [ Core Operations (with Algorithms)](#4-core-operations-with-algorithms)
    - Insertion at Head
    - Insertion at Tail
    - Deletion by Value
@@ -14,26 +13,24 @@
    - Search
    - Display
 
-5. [🔁 Reversal Techniques](#5-linked-list-reversal)
-
+5. [ Reversal Techniques](#5-linked-list-reversal)
    - Iterative Reversal
    - Recursive Reversal
    - Reverse in K-Groups
 
-6. [➕ Advanced Operations](#6-advanced-operations)
-
+6. [ Advanced Operations](#6-advanced-operations)
    - Merge Two Sorted Lists
    - Detect Loop (Cycle Detection)
    - Find Middle Node
    - Length of List
 
-7. [🧷 Doubly Linked List: Concepts & Algo](#7-doubly-linked-list-concepts--algo)
-8. [📘 Circular Linked List](#8-circular-linked-list)
-9. [🧠 Quick Tips](#9-quick-tips--patterns)
+7. [ Doubly Linked List: Concepts & Algo](#7-doubly-linked-list-concepts--algo)
+8. [ Circular Linked List](#8-circular-linked-list)
+9. [ Quick Tips](#9-quick-tips--patterns)
 
 ---
 
-## 1. 🔗 Introduction to Linked List
+## 1. Introduction to Linked List
 
 A **Linked List** is a linear data structure where each element (called a node) contains:
 
@@ -44,16 +41,16 @@ It does **not store elements in contiguous memory**, unlike arrays.
 
 ---
 
-## 2. 🧠 Understanding Pointers & Referencing
+## 2. Understanding Pointers & Referencing
 
-### ➕ How Pointers Work in Linked List
+### How Pointers Work in Linked List
 
 - Each node is dynamically created using `new` and lives in the heap.
 - A pointer (like `head`) holds the **address** of the first node.
 - Modifications to nodes must be done via references or pointers (`node* &head`).
 - `head` points to the first node. Each node points to the next via `next`.
 
-### 📍 Example: Flow of Pointers
+### Example: Flow of Pointers
 
 ```
 head → [data] → [data] → NULL
@@ -85,7 +82,7 @@ graph LR
 
 ---
 
-## 3. 📒 Types of Linked Lists
+## 3. Types of Linked Lists
 
 | Type               | Description                                   |
 | ------------------ | --------------------------------------------- |
@@ -95,9 +92,9 @@ graph LR
 
 ---
 
-## 4. 🛠 Core Operations (With General Algorithms)
+## 4. Core Operations (With General Algorithms)
 
-### 🔹 Insertion at Head
+### Insertion at Head
 
 ```mermaid
 graph LR
@@ -111,15 +108,13 @@ graph LR
 
 ```
 
-#### 📋 Algorithm
+#### Algorithm
 
 1. Create a new node.
 2. Set new node’s `next` = current head.
 3. Update head = new node.
 
----
-
-### 🔹 Insertion at Tail
+### Insertion at Tail
 
 ```mermaid
 graph LR
@@ -128,18 +123,16 @@ graph LR
 
 ```
 
-#### 📋 Algorithm
+#### Algorithm
 
 1. Create a new node.
 2. If head is `NULL`, update head = new node.
 3. Else, traverse till `temp->next == NULL`.
 4. Set `temp->next` = new node.
 
----
+### Deletion by Value
 
-### 🔹 Deletion by Value
-
-#### 📋 Algorithm
+#### Algorithm
 
 1. Handle empty list case.
 2. If head’s data = key, delete head.
@@ -148,32 +141,26 @@ graph LR
 5. Set `temp->next = temp->next->next`.
 6. Delete the stored node.
 
----
+### Deletion at Head
 
-### 🔹 Deletion at Head
-
-#### 📋 Algorithm
+#### Algorithm
 
 1. Save current head in `todelete`.
 2. Move `head` to `head->next`.
 3. Delete `todelete`.
 
----
+### Search in Linked List
 
-### 🔹 Search in Linked List
-
-#### 📋 Algorithm
+#### Algorithm
 
 1. Traverse from head to end.
 2. If `temp->data == key`, return true.
 3. Else, move to `temp->next`.
 4. If end is reached, return false.
 
----
+### Display Linked List
 
-### 🔹 Display Linked List
-
-#### 📋 Algorithm
+#### Algorithm
 
 1. Start from head.
 2. Print `temp->data`, then move to next.
@@ -181,11 +168,11 @@ graph LR
 
 ---
 
-## 5. 🔁 Linked List Reversal
+## 5. Linked List Reversal
 
-### 🔹 Iterative Reversal
+### Iterative Reversal
 
-#### 📋 Algorithm
+#### Algorithm
 
 1. Initialize 3 pointers: `prev = NULL`, `curr = head`, `next = NULL`.
 
@@ -199,7 +186,6 @@ graph LR
 ```
 
 2. While `curr != NULL`:
-
    - Store `next = curr->next`.
    - Reverse: `curr->next = prev`.
    - Move `prev = curr`, `curr = next`.
@@ -220,11 +206,9 @@ graph LR
 
 ```
 
----
+### Recursive Reversal
 
-### 🔹 Recursive Reversal
-
-#### 📋 Algorithm
+#### Algorithm
 
 1. Base Case: if `head == NULL` or `head->next == NULL`, return head.
 2. Recursively call: `newHead = reverse(head->next)`
@@ -232,11 +216,9 @@ graph LR
 4. Set `head->next = NULL`
 5. Return `newHead`.
 
----
+### Reverse K Nodes (K-Group Reverse)
 
-### 🔹 Reverse K Nodes (K-Group Reverse)
-
-#### 📋 Algorithm
+#### Algorithm
 
 1. Use 3 pointers: `curr`, `prev`, `next`.
 2. Reverse first `k` nodes as usual.
@@ -245,13 +227,11 @@ graph LR
 
 ---
 
-## 6. ➕ Advanced Operations
+## 6. Advanced Operations
 
----
+### Merge Two Sorted Lists
 
-### 🔹 Merge Two Sorted Lists
-
-#### 📋 Algorithm
+#### Algorithm
 
 1. Create dummy node.
 2. Compare nodes from both lists.
@@ -259,33 +239,27 @@ graph LR
 4. Move in that list.
 5. Attach leftover list at end.
 
----
+### Detect Loop in LL (Floyd’s Algo)
 
-### 🔹 Detect Loop in LL (Floyd’s Algo)
-
-#### 📋 Algorithm
+#### Algorithm
 
 1. Use slow and fast pointers.
 2. Move slow = slow->next, fast = fast->next->next.
 3. If slow == fast, loop exists.
 4. Else if fast hits NULL, no loop.
 
----
+### Find Middle of List (Tortoise Method)
 
-### 🔹 Find Middle of List (Tortoise Method)
-
-#### 📋 Algorithm
+#### Algorithm
 
 1. Use slow and fast pointer.
 2. slow = head, fast = head.
 3. Move slow by 1 step, fast by 2 steps.
 4. When fast reaches end, slow is at mid.
 
----
+### Length of List
 
-### 🔹 Length of List
-
-#### 📋 Algorithm
+#### Algorithm
 
 1. Initialize `count = 0`.
 2. Traverse through each node.
@@ -294,10 +268,9 @@ graph LR
 
 ---
 
-## 7. 🧷 Doubly Linked List – Concepts & Algo
+## 7. Doubly Linked List – Concepts & Algo
 
 - Each node has:
-
   - `data`
   - `prev` (points to previous node)
   - `next` (points to next node)
@@ -309,9 +282,9 @@ graph LR
 
 ```
 
-### 🔹 Insert at End
+### Insert at End
 
-#### 📋 Algorithm
+#### Algorithm
 
 1. Create new node.
 2. If list is empty, set head = new node.
@@ -320,18 +293,18 @@ graph LR
 
 ---
 
-### 🔹 Traversal (Both Directions)
+### Traversal (Both Directions)
 
-#### 📋 Algorithm
+#### Algorithm
 
 1. Forward: `while (temp != NULL)`, print & move `temp = temp->next`.
 2. Backward: Start at last node and go `temp = temp->prev`.
 
 ---
 
-## 8. 🔁 Circular Linked List
+## 8. Circular Linked List
 
-### 🔹 Key Concepts
+### Key Concepts
 
 - Last node’s `next` points back to head.
 - Traverse ends when `temp->next == head`.
@@ -343,7 +316,7 @@ graph LR
 
 ```
 
-#### 📋 Insertion at End
+#### Insertion at End
 
 1. Create new node.
 2. Traverse to last node (`temp->next != head`)
@@ -352,7 +325,7 @@ graph LR
 
 ---
 
-## 9. 🧠 Quick Tips & Patterns
+## 9. Quick Tips & Patterns
 
 | Task           | Technique                    |
 | -------------- | ---------------------------- |
@@ -362,5 +335,3 @@ graph LR
 | Merge lists    | Dummy node + two pointer     |
 | Palindrome     | Reverse second half, compare |
 | K-th from end  | Two pointer: gap = k         |
-
----
