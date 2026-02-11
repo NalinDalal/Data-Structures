@@ -15,7 +15,8 @@ reading some topic:
 
 [2. Sorting Algorithms](./2.Sorting/readme.md)
 
-[3. Strings]
+[3. Strings](./3.String/readme.md)
+
 [4. Bit Maniuplation]
 [5. Math]
 

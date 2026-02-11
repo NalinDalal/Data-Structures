@@ -61,7 +61,7 @@ void insertionSort(vector<int> &a) {
 
 ---
 
-## Selection Sort
+## 2. Selection Sort
 
 **Idea**: Repeatedly select the minimum element from unsorted part and put it at the beginning.
 
@@ -83,11 +83,15 @@ void selectionSort(vector<int> &a) {
 
 ---
 
-## Bubble Sort
+## 1. Bubble Sort
 
 **Idea**: Repeatedly swap adjacent elements if they are in the wrong order.
 
 n rounds
+
+we start at the beginning of the array and swap the first two elements if the first is greater
+than the second. Then, we go to the next pair, and so on, continuously making sweeps of the array until it is
+sorted, tn doing so, the smaller items slowly "bubble" up to the beginning of the list.
 
 ```
 for each round:
@@ -187,13 +191,16 @@ Using an efficient priority queue to maintain the unsorted portion of the array 
 
 ---
 
-## Quick Sort
+## 4. Quick Sort
 
 Based on Divide-Conquer paradigm
 
-**Idea**: Choose a pivot, partition the array around it, and recurse. ALgo reduces job of sorting 1 big array into job of 2 small array by partition
+**Idea**: Choose a pivot(random), partition the array around it, and recurse. Algo reduces job of sorting 1 big array into job of 2 small array by partition
 partition separates the array into those elements that are less than the pivot/divider element,
 and those which are strictly greater than this pivot/divider element.
+repeatedly partition the array (and its sub-arrays) around an element, the array will eventually become sorted.
+
+
 
 **Divide**: Partition (rearrange) the array `A[p. . r]` into two (possibly empty) subarrays `A[p. . q−1]` and `A[q +1 . . r]` such that each element of `A[p. . q−1]<=A[q]`, which is, in turn, less than or equal to each element of `A[q +1 . . r]`.
 Compute the index `q` as part of this partitioning procedure.
@@ -268,6 +275,8 @@ int partition(int s[], int l, int h){
 - Best/Average: O(n log n)
 - Worst: O(n²) (rare with randomization)
 
+**Space Complexity**: O(log n)
+
 ```cpp
 int partition(vector<int> &a, int low, int high) {
     int pivot = a[high], i = low - 1;
@@ -289,7 +298,7 @@ void quickSort(vector<int> &a, int low, int high) {
 
 ---
 
-## Quick Sort(Randomised Version)
+## 5. Quick Sort(Randomised Version)
 
 In exploring the average-case behavior of quicksort, we have made an assumption
 that all permutations of the input numbers are equally likely.
@@ -319,11 +328,13 @@ randomQuickSort(A,p,r){
 
 ---
 
-## Merge Sort
+## 3. Merge Sort
 
 based on recursion
 
-**Idea**: Divide the array into halves, sort each half, and merge them.
+**Idea**: Divide the array into halves, sort each half, and merge them. each of those halves has the same sorting algorithm applied to it.
+operates by copying all the elements from the target array segment into a helper array,
+keeping track of where the start of the left and right halves should be
 
 **Algorithm:**
 to sort a subarray `array[a...b]`
@@ -362,9 +373,13 @@ void mergeSort(vector<int> &a, int l, int r) {
 
 ---
 
-## Radix Sort
+## 6. Radix Sort
 
 **Idea**: Sort numbers digit by digit using counting sort as subroutine.
+iterate through each digit of the number, grouping numbers by each digit.
+Then, we sort each of these groupings by the next digit. 
+We repeat this process sorting by each subsequent digit, until finally the whole array is sorted.
+
 
 ```
 RADIX-SORT( A, d){

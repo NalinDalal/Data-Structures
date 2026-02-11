@@ -172,6 +172,18 @@ int binarySearch(int arr[], int l, int r, int key) {
     }
     return -1;
 }
+
+//recursive algo
+int binarySearchRecursive(int[] a, int x, Int low, int high) {
+    if (low > high) return -1; // Error
+    int mid = (low + high) / 2;
+    if (a[mid] < x) 
+        return binarySearchRecursive(a, mid + 1, high);
+    else if (a[mid] > x)
+        return binarySearchRecursive(a, x, low, mid - 1);
+    else 
+        return mid;
+}
 ```
 
 **Method 2:**
