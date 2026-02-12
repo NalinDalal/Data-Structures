@@ -17,7 +17,8 @@ reading some topic:
 
 [3. Strings](./3.String/readme.md)
 
-[4. Bit Maniuplation]
+[4. Bit Maniuplation](./4.binary-bitwise.md)
+
 [5. Math]
 
 - Number Theory
