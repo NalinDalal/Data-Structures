@@ -1,34 +1,21 @@
-# Array Data Structures
+# 1. Introduction to Arrays
 
-## 1. Introduction to Arrays
+An array is a contiguous block of memory storing elements of the same type. Elements
+are accessed by a zero-based index. Access by index is O(1); searching for a value is O(n).
 
-Arrays are contiguous memory blocks holding elements of the same type. Each element is accessed using an index starting from 0.
-
-```cpp
-int arr[5] = {1, 2, 3, 4, 5};  // Static array
-```
-
-array lookup is `O(1)` as long as you know the index to look for, i.e. say to access 2nd element-> `arr[1]`, hence it's lookup is `O(1)`
-but to locate char with value `3` is `O(n)`
-
-- finite, fixed size, static
-
----
-
-## 2. Array Types
-
-### 2.1 Static Arrays
-
-- Fixed size, defined at compile-time.
+Example (static array):
 
 ```cpp
-int arr[100];  // Max 100 integers
+int arr[5] = {1, 2, 3, 4, 5}; // static array
+// access 2nd element: arr[1]
 ```
 
-### 2.2 Dynamic Arrays (`vector`)
+Key properties:
 
-- Resizable, part of STL.
-- can change size to store as much or as little data as necessary.
+- Fixed-size (static) arrays: size known at compile time.
+- Dynamic arrays (`std::vector`): resizable, part of the C++ STL.
+
+### Dynamic arrays (std::vector)
 
 ```cpp
 #include <vector>
@@ -52,8 +39,151 @@ vector<int> v(10,5);
 ### 2.3 Multidimensional Arrays
 
 ```cpp
-int mat[3][3];  // 3x3 matrix
+int mat[3][3];  // 3x3 2D matrix
 ```
+vector is a one-dimensional array of numbers.
+matrix is a rectangular array of numbers
+
+**Diagonal Matrix**
+diag(a11, a22, . . . , ann )=
+[
+    [a11, 0,......0],
+    [0, a12, ......],
+    [..............],
+    [..............],
+    [0, 0, 0.......ann]
+]
+
+**identity matrix** In is a diagonal matrix with 1’s along the diagonal
+
+An **upper-triangular matrix** U is one for which uij =0 if i > j
+
+[
+[u11 u12. . . u1n],
+[0 u22. . . u2n],
+.  .   .  .   .
+.  .   .  .   .
+.  .   .  .  .
+[0 0. . . unn]
+]
+
+same for lower triangular matrix
+
+A **permutation matrix** P has exactly one 1 in each row or column, and 0’s elsewhere
+
+**symmetric matrix** A satisfies the condition A=$$pow(A,T)$$
+
+**Matrix Operations**
+If A and B are 2 matrix, and u apply addition on them such that C=A+B
+then cij =aij +bij
+
+A +0= A
+= 0 +A 
+
+\{lambda}
+λ is a number and A= (aij ) is a matrix, then λ A= (λaij ) is the scalar
+multiple of A obtained by multiplying each of its elements by λ.
+
+A +(−A)= 0
+= (−A) +A .
+
+
+If A=(aij ) is an m ×n
+matrix and B=(bjk) is an n ×p matrix, then their matrix product C=AB is the
+m ×p matrix C=(cik ), where
+cik =
+n
+aij bjk (28.3)
+j=1
+for i= 1, 2, . . . , m and k= 1, 2, . . . , p.
+
+
+A(BC)=( AB)C
+
+A(B +C)= AB +AC ,
+(B +C)D= B D +C D. 
+
+AB != BA
+
+**Inverse of Matrix**
+AA−1 =In =A−1 A.
+
+
+If A and B are nonsingular
+n ×n matrices, then (B A)−1=A−1 B−1.
+
+( A−1)T
+=( AT)−1
+.
+
+
+The determinant of an n ×n
+matrix A can be defined recursively in terms of its minors by
+det( A)=
+    
+a11 if n =1 ,
+n
+(28.7)
+(−1)1+j a1 j det( A[1 j]) if n > 1 .
+j=1
+The term (−1)i+j det( A[ij]) is known as the cofactor of the element aij.
+
+
+An n ×n matrix A is singular if and only if det( A)=0.
+
+For any matrix A with full column rank, the matrix AT A is positive-definite.
+
+#### Strassen's Algo for Multiplication
+Strassen's algorithm applies divide-and-conquer to multiply two n×n matrices.
+
+Assume n is a power of two. Partition A and B into four n/2×n/2 blocks:
+
+$$
+A=\begin{pmatrix}a & b\\ c & d\end{pmatrix},\qquad
+B=\begin{pmatrix}e & f\\ g & h\end{pmatrix},\qquad
+C=AB=\begin{pmatrix}r & s\\ t & u\end{pmatrix}.
+$$
+
+The naive divide-and-conquer uses the equalities
+$$
+r = ae + bg,\qquad s = af + bh,\qquad t = ce + dg,\qquad u = cf + dh,
+$$
+which yields the recurrence $T(n)=8T(n/2)+\Theta(n^2)$ and therefore $T(n)=\Theta(n^3)$.
+
+Strassen discovered a scheme that computes the same result with only seven
+recursive multiplications, giving $T(n)=7T(n/2)+\Theta(n^2)=\Theta(n^{\log_2 7})\approx\Theta(n^{2.81})$.
+
+Define the seven products (each is an n/2×n/2 multiplication):
+
+$$
+\begin{aligned}
+P_1 &= a\cdot(f-h),\\
+P_2 &= (a+b)\cdot h,\\
+P_3 &= (c+d)\cdot e,\\
+P_4 &= d\cdot(g-e),\\
+P_5 &= (a+d)\cdot(e+h),\\
+P_6 &= (b-d)\cdot(g+h),\\
+P_7 &= (a-c)\cdot(e+f).
+\end{aligned}
+$$
+
+Then the blocks of the product matrix are recovered from these as:
+
+$$
+\begin{aligned}
+r &= P_5 + P_4 - P_2 + P_6,\\
+s &= P_1 + P_2,\\
+t &= P_3 + P_4,\\
+u &= P_5 + P_1 - P_3 - P_7.
+\end{aligned}
+$$
+
+These combinations use only additions/subtractions of n/2×n/2 matrices (\Theta(n^2)
+work) plus the seven recursive multiplications. Recursing yields the asymptotic
+improvement; note that Strassen's method increases constant factors and has
+numerical/stability considerations, so it's mainly useful for large dense matrices.
+
+
 
 ### 2.4 Jagged Arrays (using vector of vectors)
 

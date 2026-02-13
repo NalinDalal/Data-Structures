@@ -19,10 +19,7 @@ reading some topic:
 
 [4. Bit Maniuplation](./4.binary-bitwise.md)
 
-[5. Math]
-
-- Number Theory
-- Combinatorics
+[5. Math](./5.Math/readme.md)
 
 [6. Linked List]
 [7. Stacks]
