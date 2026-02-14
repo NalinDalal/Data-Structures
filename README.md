@@ -21,7 +21,8 @@ reading some topic:
 
 [5. Math](./5.Math/readme.md)
 
-[6. Linked List]
+[6. Linked List](./6.Linked-List/readme.md)
+
 [7. Stacks]
 [8. Queues]
 [9. Recursion]

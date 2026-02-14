@@ -37,7 +37,18 @@ A **Linked List** is a linear data structure where each element (called a node) 
 - `data` (the value)
 - `next` (pointer to next node)
 
+Arranged in linear order
 It does **not store elements in contiguous memory**, unlike arrays.
+
+```mermaid
+classDiagram
+class Node {
+  int data;
+  Node* next;
+}
+
+Node --> Node : next;
+```
 
 ---
 
@@ -58,15 +69,16 @@ head → [data] → [data] → NULL
 
 ```mermaid
 graph LR
-    A[head] --> B["1 →"] --> C["2 →"] --> D["3 →"] --> E[NULL]
+    A[head] --> B["1"] --> C["2"] --> D["3"] --> E[NULL]
 
 ```
 
-- If `node* temp = head;`, then `temp` is another pointer to the same node.
+- Create another pointer(temp) to same node=> 
+ `node* temp = head;`
 
   ```mermaid
   graph LR
-      A[head] --> B["1 →"] --> C["2 →"]
+      A[head] --> B["1"] --> C["2"]
   T[temp] --> B
 
   ```
@@ -75,10 +87,11 @@ graph LR
 
   ```mermaid
   graph LR
-  A[head] --> B(["1->"]) --> C(["2->"]) --> D(["3->"])
+  A[head] --> B(["1"]) --> C(["2"]) --> D(["3"])
   T[temp] --> C
 
   ```
+
 
 ---
 
@@ -92,27 +105,86 @@ graph LR
 
 ---
 
-## 4. Core Operations (With General Algorithms)
+## 4. Core Operations
+
+### Search in Linked List
+
+A query that, given a set S and a key value k, returns a pointer x to an element
+in S such that key[x]=k, or NIL if no such element belongs to S.
+
+1. Traverse from head to end.
+2. If `temp->data == key`, return true.
+3. Else, move to `temp->next`.
+4. If end is reached, return false.
+
+```
+SEARCH(L,k){
+    x ←head[L]
+    while x !=NIL and key[x] !=k
+        do x ←next[x]
+    return x
+}
+```
+
+O(n) time complexity
+
+---
+
+MINIMUM(S)
+A query on a totally ordered set S that returns a pointer to the element of S with
+the smallest key.
+
+MAXIMUM(S)
+A query on a totally ordered set S that returns a pointer to the element of S with
+the largest key.
+
+SUCCESSOR(S, x)
+A query that, given an element x whose key is from a totally ordered set S,
+returns a pointer to the next larger element in S, or NIL if x is the maximum
+element.
+
+PREDECESSOR(S, x)
+A query that, given an element x whose key is from a totally ordered set S,
+returns a pointer to the next smaller element in S, or NIL if x is the minimum
+element.
 
 ### Insertion at Head
 
 ```mermaid
 graph LR
     subgraph Before
-        HEAD[head] --> A(["10->"]) --> B(["20->"])
+        HEAD[head] --> A(["10"]) --> B(["20"])
     end
     subgraph Insert 5 at Head
-        NEW(["5->"]) --> A
+        NEW(["5"]) --> A
         HEAD --> NEW
     end
 
 ```
 
+INSERT(S, x)
+A modifying operation that augments the set S with the element pointed to by x.
+We usually assume that any fields in element x needed by the set implementation have already been initialized.
+
+element x whose key field is already set, then procedure `splices` x onto the front of list
+```
+LIST-INSERT(L, x)
+next[x] ←head[L]
+if head[L] !=NIL
+    prev[head[L]] ←x
+head[L] ←x
+prev[x] ←NIL
+```
+
+Time: O(1)
+
 #### Algorithm
 
 1. Create a new node.
-2. Set new node’s `next` = current head.
-3. Update head = new node.
+2. Set `newNode->next = head`
+3. If head is not null, `head->prev = newNode`
+4. Update `head = newNode`
+
 
 ### Insertion at Tail
 
@@ -130,7 +202,48 @@ graph LR
 3. Else, traverse till `temp->next == NULL`.
 4. Set `temp->next` = new node.
 
+
 ### Deletion by Value
+
+DELETE(S, x)
+A modifying operation that, given a pointer x to an element in the set S, removes x from S.
+(Note that this operation uses a pointer to an element x, not a key value.)
+
+```
+LIST-DELETE(L, x){
+    if (prev[x] !=NIL){
+        next[prev[x]] ←next[x]
+    }
+    else{ 
+        head[L] ←next[x]
+    }
+    if(next[x] !=NIL){
+        prev[next[x]] ←prev[x]
+    }
+}
+```
+
+```
+Mode deleteNode(Node head, i n t d) {
+    Node n = head;
+    
+    if (n.data == d) {
+        r e t u r n head.next; /* moved head */
+    }
+
+    while (n.next != null) {
+        if (n.next.data == d) {
+            n.next = n . n e x t . n e x t ;
+            r e t u r n head; /* head d i d n ' t change */
+        }
+        n = n . n e x t ;
+    }
+    return head;
+}
+```
+
+Time: O(1)
+delete an element with a given key, then Omega(n)
 
 #### Algorithm
 
@@ -141,6 +254,18 @@ graph LR
 5. Set `temp->next = temp->next->next`.
 6. Delete the stored node.
 
+```
+void deleteList(element *head){
+    element *next, *delMe;
+    delMe=head;
+    while(delMe){
+        next=delMe->next;
+        free(delMe);
+        delMe=next;
+    }
+}
+```
+
 ### Deletion at Head
 
 #### Algorithm
@@ -149,14 +274,31 @@ graph LR
 2. Move `head` to `head->next`.
 3. Delete `todelete`.
 
-### Search in Linked List
 
-#### Algorithm
+```
+int deleteElem(elem **head, elem *del){
+    elem *elem = *head;
 
-1. Traverse from head to end.
-2. If `temp->data == key`, return true.
-3. Else, move to `temp->next`.
-4. If end is reached, return false.
+    if(del == *head){
+        *head=elem->next;
+        free(deleteMe);
+        return 1;
+    }
+
+    while(elem){
+        if(elem->next == deleteMe) {
+            /* elem is element preceding deleteMe */ 
+            elem-›next = deleteMe-›next;
+            free (deleteMe) ;
+            return 1;
+        }
+        elem = elem-›next;
+    }
+    /* deleteMe not found */
+}
+```
+
+
 
 ### Display Linked List
 
@@ -275,21 +417,23 @@ graph LR
   - `prev` (points to previous node)
   - `next` (points to next node)
 
+Given an element x in the list, next[x] points to its
+successor in the linked list, and prev[x] points to its predecessor. If prev[x]=NIL,
+the element x has no predecessor and is therefore the first element, or head, of the
+list.
+
+If next[x]= NIL, the element x has no successor and is therefore the last
+element, or tail, of the list.
+
+An attribute head[L] points to the first element of the list. 
+If head[L]=NIL, the list is empty.
+
 ```mermaid
 graph LR
     A([10]) <--> B([20]) <--> C([30]) <--> D([40])
     HEAD[head] --> A
 
 ```
-
-### Insert at End
-
-#### Algorithm
-
-1. Create new node.
-2. If list is empty, set head = new node.
-3. Traverse to end.
-4. Set `last->next = new`, `new->prev = last`.
 
 ---
 
@@ -298,8 +442,24 @@ graph LR
 #### Algorithm
 
 1. Forward: `while (temp != NULL)`, print & move `temp = temp->next`.
-2. Backward: Start at last node and go `temp = temp->prev`.
+```
+1. Start at `head`.
+2. While `temp != NULL`:
 
+   - Print `temp->data`
+   - Move `temp = temp->next`
+```
+
+2. Backward: Start at last node and go `temp = temp->prev`.
+```
+
+1. Start at last node (`while (temp->next != NULL)`)
+2. Then:
+
+   - Print `temp->data`
+   - Move `temp = temp->prev`
+
+```
 ---
 
 ## 8. Circular Linked List
@@ -335,3 +495,12 @@ graph LR
 | Merge lists    | Dummy node + two pointer     |
 | Palindrome     | Reverse second half, compare |
 | K-th from end  | Two pointer: gap = k         |
+
+---
+
+## 10. Runner Techinque/ Slow Fast Pointer
+we maintain 2 pointers `slow` and `fast`
+`slow` moves 1 step at a time and `fast` moves 2 step at a time
+
+say we have p1 and p2 that are slow and fast
+so when p2 reaches end of list, then p1 will be at middle of list
