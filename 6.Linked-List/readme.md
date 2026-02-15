@@ -466,6 +466,10 @@ graph LR
 
 ### Key Concepts
 
+A Circular Linked List is a variation of a singly linked list where the last node points back to the head instead of null. This forms a circular chain of nodes.
+
+- No node in the list points to null.
+- Useful for buffer management, round robin, and cyclic scheduling.
 - Last node’s `next` points back to head.
 - Traverse ends when `temp->next == head`.
 
@@ -473,8 +477,20 @@ graph LR
 graph LR
     A([1]) --> B([2]) --> C([3]) --> D([4]) --> A
     HEAD[head] --> A
+```
 
 ```
+struct Node {
+    int data;
+    Node* next;
+
+    Node(int value) : data(value), next(nullptr) {}
+};
+```
+
+- The last node's `next` pointer points to the `head`.
+- We can maintain a `tail` pointer to simplify insertions at end.
+- The traversal condition is `while (temp->next != head)` or `do-while`.
 
 #### Insertion at End
 
@@ -482,6 +498,64 @@ graph LR
 2. Traverse to last node (`temp->next != head`)
 3. Point last->next to new node.
 4. new->next = head
+
+
+1. Create a new node.
+2. If list is empty, set `newNode->next = newNode` and `head = newNode`.
+3. Else:
+
+   - Traverse to the last node (`while (temp->next != head)`).
+   - `temp->next = newNode`
+   - `newNode->next = head`
+
+#### Insertion at Beginning
+
+Algorithm:
+
+1. Create a new node.
+2. If list is empty, set `newNode->next = newNode` and `head = newNode`.
+3. Else:
+
+   - Traverse to last node.
+   - `newNode->next = head`
+   - `last->next = newNode`
+   - `head = newNode`
+
+
+#### Traversal
+
+Algorithm:
+
+1. If list is empty, return.
+2. Use a `do-while` loop:
+
+   - Print `temp->data`
+   - `temp = temp->next`
+   - Stop when `temp == head`
+
+
+#### Deletion by Value
+
+Algorithm:
+
+1. Handle empty list.
+2. Use two pointers: `curr` and `prev`.
+3. Traverse in a loop until `curr->data == key` or loop ends.
+4. If `curr == head`, move head forward and update tail’s next.
+5. Else:
+
+   - `prev->next = curr->next`
+
+6. Delete the node.
+
+
+
+
+Points:
+- Use `do-while` for traversal to ensure full loop.
+- Maintain `tail` pointer for O(1) insertions at end.
+- Special care is needed when deleting the head node.
+- For singly circular LL, only one direction of navigation is available.
 
 ---
 
