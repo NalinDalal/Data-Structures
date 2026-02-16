@@ -2,13 +2,13 @@
 
 using namespace std;
 
-int stack[100], n=100, top=-1;
+int myStack[100], n=100, top=-1;
 void push(int val){
     if(top>n-1)
         cout<<"Stack Overflow"<<endl;
     else{
         top++;
-        stack[top]=val;
+        myStack[top]=val;
     }    
 }
 
@@ -16,7 +16,7 @@ void pop(){
     if(top<=-1)
         cout<<"Stack Underflow"<<endl;
     else{
-        cout<<"the popped element is: "<<stack[top];
+        cout<<"the popped element is: "<<myStack[top];
         cout<<endl;
         top--;
     }    
@@ -26,7 +26,7 @@ void display(){
     if(top>=0){
         cout<<"Stack elements are:";
         for(int i=top;i>=0;i--)
-            cout<<stack[i]<<" ";
+            cout<<myStack[i]<<" ";
             cout<<endl;
     }
     else{

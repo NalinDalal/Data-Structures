@@ -23,7 +23,8 @@ reading some topic:
 
 [6. Linked List](./6.Linked-List/readme.md)
 
-[7. Stacks]
+[7. Stacks](./7.Stack/readme.md)
+
 [8. Queues]
 [9. Recursion]
 [10. BackTracking]

@@ -1,4 +1,4 @@
-//reverse a fucking sentence
+//reverse a sentence
 #include <iostream>
 #include <stack>
 using namespace std;
@@ -18,13 +18,13 @@ void reverseSentence(string s){
 	while(!st.empty()){
 		cout<<st.top()<<" ";
 		st.pop();
-	}cout<<endl;
+	}
+	cout<<endl;
 }
 
 int main(){
 
 	string s="Hey how are you";
 	reverseSentence(s);
-	//stack<int> st;
 	return 0;
 }
