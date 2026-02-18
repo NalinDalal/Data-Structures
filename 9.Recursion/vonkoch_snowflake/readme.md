@@ -8,9 +8,9 @@
 
 ---
 
-## 🧱 Code Structure Breakdown
+## Code Structure Breakdown
 
-### 🔹 `vonKoch` Class
+###  `vonKoch` Class
 
 This class handles drawing the snowflake:
 
@@ -26,13 +26,13 @@ vonKoch(int s,int lvl, CDC *pDC)
 
 ---
 
-### 🔹 Core Recursive Logic — `drawFourLines`
+###  Core Recursive Logic — `drawFourLines`
 
 ```cpp
 void vonKoch::drawFourLines(double side,int level)
 ```
 
-#### 🧠 Algorithm:
+####  Algorithm:
 
 ```plaintext
 If level == 0:
@@ -59,7 +59,7 @@ This recursively builds the Koch edge.
 
 ---
 
-### 🔹 Angle Handling
+###  Angle Handling
 
 ```cpp
 void left(double x)  → angle -= x;
@@ -70,7 +70,7 @@ You're adjusting `angle` globally in the object and using `cos(angle)` / `sin(an
 
 ---
 
-### 🔹 `LineTo`
+###  `LineTo`
 
 ```cpp
 pen->LineTo(pt);
@@ -80,7 +80,7 @@ Draws a line from `currPt` to `pt` on the device context `pDC`. After drawing, i
 
 ---
 
-### 🔹 `snowflake()`
+###  `snowflake()`
 
 This draws **3 Koch edges** to form a full triangle (the base of the snowflake):
 
@@ -93,7 +93,7 @@ for (int i = 1; i <= 3; i++) {
 
 ---
 
-## 🎯 What is `onDraw` doing?
+##  What is `onDraw` doing?
 
 ```cpp
 vonKoch(200, 4, pDC).snowflake();
@@ -105,7 +105,7 @@ vonKoch(200, 4, pDC).snowflake();
 
 ---
 
-## 📌 TL;DR Summary
+##  TL;DR Summary
 
 - `drawFourLines()` is the recursive part
 - `snowflake()` draws 3 sides to form the base triangle

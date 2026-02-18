@@ -25,8 +25,10 @@ reading some topic:
 
 [7. Stacks](./7.Stack/readme.md)
 
-[8. Queues]
-[9. Recursion]
+[8. Queues](./8.Queue/readme.md)
+
+[9. Recursion](./9.Recursion/readme.md)
+
 [10. BackTracking]
 [11. Hash Tables]
 [12. Trees/Binary Trees]
@@ -48,7 +50,7 @@ reading some topic:
 [16.Greedy]
 [17.NP Hardness]
 
-## Problem Sheets & Resources
+## Problem Sheets
 
 - [CSES Problem Set](https://cses.fi/problemset?s=08)
 - [TLE Eliminators CP Sheet](https://www.tle-eliminators.com/cp-sheet)
