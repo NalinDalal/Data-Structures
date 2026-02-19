@@ -17,7 +17,7 @@ reading some topic:
 
 [3. Strings](./3.String/readme.md)
 
-[4. Bit Maniuplation](./4.binary-bitwise.md)
+[4. Bit Maniuplation](./4.BitManipulation/readme.md)
 
 [5. Math](./5.Math/readme.md)
 
