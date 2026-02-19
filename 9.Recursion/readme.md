@@ -1,20 +1,21 @@
-
-Algorithms- JeffE: 39-88
-programming-interview: 104-128(pdf)
-
-to read on 18.02
-
 ##  1. What is Recursion?
 
 > **Recursion** is a method of solving a problem where a function calls itself.
+
+u solve them by breaking 1 big problem into multiple small problems
+then you merge them recursively to get final solution
+
+Reducing one problem X to another problem Y means to write an algorithm
+for X that uses an algorithm for Y as a black box or subroutine
+
+powerful kind of reduction:
+- if can be solved directly, solve it
+- else reduce to more simpler instance of same problem
 
 Every recursive function must have:
 
 - **Base Case** → Stops recursion
 - **Recursive Case** → Reduces problem into smaller subproblems
-
-u solve them by breaking 1 big problem into multiple small problems
-then you merge them recursively to get final solution
 
 3 approaches:  bottom-up, top-down, and half-and-half.
 
@@ -48,6 +49,9 @@ graph TD;
 ```
 
 each node gives out 2 child, hence for n node it will be $2^n$ nodes
+
+T (n) = r T (n/c) + f (n).
+each node at depth d contains the value f (n/pow(c,d)).
 
 ---
 
@@ -87,6 +91,13 @@ returnType func(params) {
 
 1. Base case: if n == 0 → return 1
 2. Else: return n \* factorial(n - 1)
+
+```
+fact(n){
+    if(n>1) fact(n-1)*n;
+    else return 1;
+}
+```
 
 ---
 
@@ -130,7 +141,6 @@ we already know `fib(1)` and `fib(0)`, hence can easily find `fib(2)`, `fib(3)` 
 recursionBottomUp(n){
 
 }
-
 ```
 
 it's like a,b
@@ -143,6 +153,27 @@ it's like a,b
 
 1. Base: if b == 0 → return 1
 2. Return a \* power(a, b - 1)
+
+**Pingala Algorithm:**
+
+$$
+a^n = \begin{cases} 1 & \text{if } n = 0 \\ (a^{n/2})^2 & \text{if } n > 0 \text{ and } n \text{ is even} \\ (a^{\lfloor n/2 \rfloor})^2 \cdot a & \text{otherwise} \end{cases}
+$$
+
+```
+PingalaPower(a, n):
+    if n = 1
+        return a
+    else
+        x ←Pi˙ ngalaPower(a, ⌊n/2⌋)
+        if n is even
+            return x·x
+        else
+            return x·x·a
+```
+
+T (n) <= T (n/2) + 2.
+T (n) = O(log n)
 
 ---
 
@@ -220,6 +251,91 @@ it's like a,b
 
 ---
 
+### 11. MergeSort
+
+1. Divide the input array into two subarrays of roughly equal size.
+2. Recursively mergesort each of the subarrays.
+3. Merge the newly-sorted subarrays into a single sorted array.
+
+merge algo is also recursive:
+identify the first element of the output array, and then 
+recursively merge the rest of the input arrays.
+
+```
+MergeSort(A[1 .. n]):
+    if n >1
+        m ←⌊n/2⌋
+        MergeSort(A[1 .. m]) 〈〈Recurse!〉〉
+        MergeSort(A[m + 1 .. n]) 〈〈Recurse!〉〉
+        Merge(A[1 .. n], m)
+
+Merge(A[1 .. n], m):
+    i ←1; j ←m + 1
+    for k ←1 to n
+        if j >n
+            B[k] ←A[i]; i ←i + 1
+        else if i >m
+            B[k] ←A[ j]; j ←j + 1
+        else if A[i] <A[ j]
+            B[k] ←A[i]; i ←i + 1
+        else
+            B[k] ←A[ j]; j ←j + 1
+    
+    for k ←1 to n
+        A[k] ←B[k]
+```
+
+Time: T(n)=T(ceil(n/2))+T(floor(n/2))+O(n)
+        T(n)=2T(n/2)+O(n)
+        T(n)=O(nlog n)
+
+---
+
+### 12. Quicksort
+hard work is to split the array into smaller subarrays before recursion, so that merging the sorted subarrays is trivial.
+
+1. Choose a pivot element from the array.
+2. Partition the array into three subarrays containing the elements smaller than the pivot, the pivot element itself, and the elements larger than the pivot.
+3. Recursively quicksort the first and last subarrays.
+
+```
+QuickSort(A[1 .. n]):
+    if (n >1)
+        Choose a pivot element A[p]
+        r ←Partition(A, p)
+        QuickSort(A[1 .. r−1]) 〈〈Recurse!〉〉
+        QuickSort(A[r + 1 .. n]) 〈〈Recurse!〉〉
+
+Partition(A[1 .. n], p):
+    swap A[p] ↔A[n]
+    ℓ←0 〈〈#items <pivot〉〉
+    for i ←1 to n−1
+        if A[i] <A[n]
+            ℓ←ℓ+ 1
+            swap A[ℓ] ↔A[i]
+    swap A[n] ↔A[ℓ+ 1]
+    return ℓ+ 1
+```
+
+Time: T (n) = T (r−1) + T (n−r) + O(n)
+
+r=ceil(n/2)
+T(n)=T(ceil(n/2)-1)+T(floor(n/2))+O(n)
+    <=2T(n/2)+O(n)
+
+T(n)=O(n log n)
+
+since r can go from 1 to n
+
+T(n)=max(T(r-1)+T(n-r)+O(n)) {1<=r<=n}
+worst case: r=1 and r=n
+ T (n) <=T (n−1) + O(n).
+
+T(n)=O(n^2)
+
+
+-----
+
 ## 6. Tail vs Head Recursion (Comparison)
 
 | Feature        | Head Recursion | Tail Recursion           |
@@ -235,3 +351,36 @@ it's like a,b
 - Always write the **base case first**
 - Print before & after recursive calls
 - Use call stack trace mentally or on paper
+
+---
+
+## 8. Tower of Hanoi
+3 tower A,B,C, with n discs of different sizes
+now all dics are at tower A, need to move thm to tower C
+no disc maybe placed on top of a disc smaller than itself
+
+break into sub problems:
+1. Move n− 1 discs from peg A to peg B using peg C as the intermediate peg.
+After this recursive step is done, we are left with disc n by itself in peg A.
+2. Move disc n from peg A to peg C.
+3. Move n− 1 discs from peg B to peg C using peg A as the intermediate peg.
+These n− 1 discs will be on top of disc n which is now at the bottom of peg C.
+
+```cpp
+#include <cstdio>
+using namespace std;
+void solve(int count, char source, char destination, char intermediate) {
+    if (count == 1)
+        printf("Move top disc from pole %c to pole %c\n", source, destination);
+    else {
+        solve(count-1, source, intermediate, destination);
+        solve(1, source, destination, intermediate);
+        solve(count-1, intermediate, destination, source);
+    }
+}
+
+int main() {
+    solve(3, ’A’, ’C’, ’B’);
+    return 0;
+}
+```

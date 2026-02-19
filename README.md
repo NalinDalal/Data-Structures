@@ -57,7 +57,3 @@ reading some topic:
 - [YouKn0wWho Academy Topic List- Problem Set](https://youkn0wwho.academy/topic-list)
 - [Striver’s CP Sheet](https://takeuforward.org/interview-experience/strivers-cp-sheet)
 - [USACO Guide (again, great for progression)](https://usaco.guide/problems/)
-
----
-
-[NPTEL Course](https://www.youtube.com/playlist?list=PLBF3763AF2E1C572F)
