@@ -384,3 +384,327 @@ int main() {
     return 0;
 }
 ```
+
+----
+## 9. Substitution Method
+1. Guess the form of the solution.
+2. Use mathematical induction to find the constants and show that the solution works.
+
+$T(n)=2T(\lfloor(n/2)\rfloor)+n$
+T(n)=O(nlog n)
+
+consider: $T (n)=T (\lfloor(n/2)\rfloor) +T (\lceil n/2 \rceil) +1$ ;  T(n)<=cn
+$T(n) = T(\lfloor n/2 \rfloor) + T(\lceil n/2 \rceil) + 1$
+= cn +1 ,
+
+T(n)=O(n)
+
+**Change Variables**
+consider:
+$T(n)=2T(\lfloor(n^{1/2})\rfloor)+lg n$
+put m=lg n
+$T(2^m) = 2T(2^{m/2})+m$
+put $S(m)=T(2^m)$
+$S(m)=2S(m/2) +m$
+$S(m)=O(m lg m)$
+
+$T (n)=T (2^m )=S(m)=O(m lg m)=O(lg n lg lg n)$
+
+## 10. Recursion Tree Method
+each node represents the cost of a single subproblem somewhere in the set of recursive function invocations.
+sum up each level nodes
+
+consider:
+$$
+T(n) = 3T(\lfloor n/4 \rfloor) + c n^2
+$$
+
+We ignore floors and assume ( n ) is a power of 4 (safe simplification).
+
+**Recursion Tree Analysis**
+Height of the Tree
+
+Subproblem size at depth ( i ): $\frac{n}{4^i}$
+
+Base case when: $\frac{n}{4^i} = 1 \Rightarrow i = \log_4 n$
+
+So total levels = $\log_4 n + 1$
+
+
+**Number of Nodes at Depth ( i )**
+
+Each level triples:
+
+$
+3^i
+$
+
+
+
+**Cost per Node at Depth ( i )**
+
+$
+c\left(\frac{n}{4^i}\right)^2
+$
+
+**Total Cost at Depth ( i )**
+
+$
+3^i \cdot c\left(\frac{n}{4^i}\right)^2
+$
+
+$
+\left(\frac{3}{16}\right)^i c n^2
+$
+
+**Leaf Level Cost**
+
+At depth ( \log_4 n ):
+
+$
+3^{\log_4 n} = n^{\log_4 3}
+$
+
+Total leaf cost:
+
+$
+\Theta(n^{\log_4 3})
+$
+
+Since ( \log_4 3 < 1 ),
+this is **smaller than ( n^2 )**.
+
+**Total Cost**
+
+Sum over all levels:
+
+$
+c n^2 \sum_{i=0}^{\log_4 n -1} \left(\frac{3}{16}\right)^i
+$
+
+This is a decreasing geometric series:
+
+$
+\sum_{i=0}^{\infty} \left(\frac{3}{16}\right)^i
+$
+
+$
+ \frac{1}{1 - 3/16}
+$
+$
+\frac{16}{13}
+$
+
+So total cost:
+
+$
+T(n) = O(n^2)
+$
+
+**Why It’s Tight**
+
+* First term already contributes ( $\Omega(n^2)$ )
+* So:
+
+$
+T(n) = \Theta(n^2)
+$
+
+The root dominates the total cost.
+
+---
+
+##  Example 2
+
+### Recurrence:
+
+$
+T(n) = T(n/3) + T(2n/3) + cn
+$
+
+---
+
+##  Recursion Tree Analysis
+
+###  Cost Per Level
+
+At each level:$cn$
+
+Total work per level remains linear.
+
+---
+
+###  Height of Tree
+
+Longest path:
+
+$
+n \to (2/3)n \to (2/3)^2 n \to \dots \to 1
+$
+
+Solve:
+
+$
+(2/3)^k n = 1
+\Rightarrow
+k = \log_{3/2} n
+$
+
+Height:
+
+$
+\Theta(\log n)
+$
+
+###  Total Cost
+
+$
+\text{(cost per level)} \times \text{(levels)}
+cn \cdot \log n
+$
+
+$
+T(n) = O(n \log n)
+$
+
+---
+
+## 11. Master Theorem
+
+
+
+The Master Method solves recurrences of the form:
+
+$
+T(n) = aT(n/b) + f(n)
+$
+
+Where:
+
+* ( a \ge 1 ) = number of subproblems
+* ( b > 1 ) = factor by which input shrinks
+* ( f(n) ) = cost of divide + combine work
+* Assume ( n/b ) means either floor or ceiling (doesn’t affect asymptotics)
+
+
+
+Compare:
+
+$
+f(n) \quad \text{vs} \quad n^{\log_b a}
+$
+
+* ( $n^{\log_b a}$ ) = total work done at leaves
+* ( f(n) ) = work done at root level
+
+The **larger function dominates** the solution.
+
+
+### The Three Cases
+
+Let:
+
+$
+d = \log_b a
+$
+
+
+
+ **Case 1 — Subproblem Work Dominates**
+
+If:
+
+$
+f(n) = O(n^{d-\epsilon}) \quad \text{for some } \epsilon > 0
+$
+
+(f(n) is polynomially smaller)
+
+Then:
+
+$
+T(n) = \Theta(n^d)
+$
+
+ Leaves dominate.
+
+
+
+**Case 2 — Balanced Case**
+
+If:
+
+$
+f(n) = \Theta(n^d)
+$
+
+Then:
+
+$
+T(n) = \Theta(n^d \log n)
+$
+
+ Work evenly distributed across levels.
+
+**Case 3 — Combine Work Dominates**
+
+If:
+
+$
+f(n) = \Theta(n^{d+\epsilon}) \quad \text{for some } \epsilon > 0
+$
+
+AND regularity condition holds:
+
+$
+a f(n/b) \le c f(n) \quad \text{for some } c < 1
+$
+
+Then:
+
+$
+T(n) = \Theta(f(n))
+$
+
+ Root dominates.
+
+
+
+### Important Conditions
+
+### 1. Must be polynomial difference
+
+* “Slightly bigger” is NOT enough.
+* Must differ by a factor of ( $n^\epsilon$ ).
+
+### 2. Regularity condition (Case 3 only)
+
+Must satisfy:
+
+$
+a f(n/b) \le c f(n)
+$
+
+This ensures work decreases geometrically.
+
+
+### Quick Decision Cheat Sheet
+
+1. Compute ( $d = \log_b a$ )
+2. Compare ( f(n) ) with ( $n^d$ )
+3. Check:
+
+   * Polynomially smaller → Case 1
+   * Same order → Case 2
+   * Polynomially larger + regularity → Case 3
+   * Otherwise → Master theorem not applicable
+
+---
+
+###  Big Picture
+
+| Dominating Term | Result                          |
+| --------------- | ------------------------------- |
+| Subproblem cost | ( $\Theta(n^{\log_b a})$ )        |
+| Equal cost      | ( $\Theta(n^{\log_b a} \log n)$ ) |
+| Combine cost    | ( $\Theta(f(n))$ )                |
