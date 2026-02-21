@@ -1,16 +1,3 @@
-- For **problem solving**, take tough problems and give enough time to think — don’t quit early. Solve problems that **feel hard** for you.
-- For **speed**, practice easy questions under time constraints (like solving `x` problems in `y` minutes).
-
-when you read the topic, say you took array and gone through all of it's famous algo, just take cf and practice min 50-60 problems for that particular algo
-
-reading some topic:
-
-- start from scratch
-- check already present notes
-- go through other books you have
-- update notes
-- solve various problems on the go
-
 [1.Array](./1.Array/readme.md)
 
 [2. Sorting Algorithms](./2.Sorting/readme.md)
@@ -29,8 +16,10 @@ reading some topic:
 
 [9. Recursion](./9.Recursion/readme.md)
 
-[10. BackTracking]
-[11. Hash Tables]
+[10. BackTracking](./10.BackTracking/readme.md)
+
+[11. Hash Tables+HashMap]
+
 [12. Trees/Binary Trees]
 [13.Binary Search Tree+Red-Black Tree]
 
@@ -51,6 +40,12 @@ reading some topic:
 [17.NP Hardness]
 
 ## Problem Sheets
+
+just take cf and practice min 50-60 problems for that particular algo
+
+- For **problem solving**, take tough problems and give enough time to think — don’t quit early. Solve problems that **feel hard** for you.
+- For **speed**, practice easy questions under time constraints (like solving `x` problems in `y` minutes).
+
 
 - [CSES Problem Set](https://cses.fi/problemset?s=08)
 - [TLE Eliminators CP Sheet](https://www.tle-eliminators.com/cp-sheet)
