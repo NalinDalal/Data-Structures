@@ -1,6 +1,10 @@
-## 📘 README: HashMap (Custom Implementation)
+chap 11- cormen(221-253)
+page 658- cracking coding interview
 
-### 📌 Overview
+
+# HashMap (Custom Implementation)
+
+### Overview
 
 A **HashMap** is a key-value data structure that provides **average-case constant time complexity** (`O(1)`) for insertion, deletion, and lookup operations.
 
@@ -13,7 +17,7 @@ This project implements a custom `HashMap` in C++ using:
 
 ---
 
-## 📚 Table of Contents
+## Table of Contents
 
 1. [What is a HashMap?](#what-is-a-hashmap)
 2. [How HashMap Works](#how-hashmap-works)
@@ -28,7 +32,7 @@ This project implements a custom `HashMap` in C++ using:
 
 ---
 
-## 🧠 What is a HashMap?
+##  What is a HashMap?
 
 A **HashMap** (also known as an unordered map or dictionary) allows you to store and retrieve values using keys.
 
@@ -48,7 +52,7 @@ cout << map["banana"]; // Output: 5
 
 ---
 
-## ⚙️ How HashMap Works
+##  How HashMap Works
 
 - Every key is passed to a **hash function**.
 - The hash function returns an index (`0` to `capacity - 1`).
@@ -57,7 +61,7 @@ cout << map["banana"]; // Output: 5
 
 ---
 
-## 🧮 Hashing Function
+##  Hashing Function
 
 A **hash function** maps a key to an integer (bucket index):
 
@@ -78,7 +82,7 @@ Good hash functions aim to:
 
 ---
 
-## 🚧 Collision Resolution
+##  Collision Resolution
 
 When two keys hash to the same bucket, we resolve the conflict using one of:
 
@@ -96,7 +100,7 @@ When two keys hash to the same bucket, we resolve the conflict using one of:
 
 ---
 
-## 🧪 Resizing & Load Factor
+##  Resizing & Load Factor
 
 To keep performance `O(1)`, we must **rehash** when table gets too full.
 
@@ -106,19 +110,19 @@ To keep performance `O(1)`, we must **rehash** when table gets too full.
 
 ---
 
-## ✅ Features
+##  Features
 
-- ✅ Template-based generic key-value support
-- ✅ Efficient hashing and collision resolution
-- ✅ Automatic resizing
-- ✅ Insert, remove, update, search
-- ✅ Operator overloading for `[]`
+- Template-based generic key-value support
+-  Efficient hashing and collision resolution
+-  Automatic resizing
+-  Insert, remove, update, search
+-  Operator overloading for `[]`
 
 ---
 
-## 📦 Usage
+##  Usage
 
-### 💡 Example
+###  Example
 
 ```cpp
 #include "HashMap.h"
@@ -136,7 +140,7 @@ int main() {
 }
 ```
 
-### 💼 API
+###  API
 
 | Method         | Description                       |
 | -------------- | --------------------------------- |
@@ -150,7 +154,7 @@ int main() {
 
 ---
 
-## ⏱️ Time & Space Complexity
+##  Time & Space Complexity
 
 | Operation | Average Case | Worst Case (with poor hash) |
 | --------- | ------------ | --------------------------- |
@@ -161,7 +165,7 @@ int main() {
 
 ---
 
-## ⚠️ Limitations
+##  Limitations
 
 - Not thread-safe
 - Worst-case linear time if hash collisions dominate
@@ -169,7 +173,7 @@ int main() {
 
 ---
 
-## 🚀 Future Enhancements
+##  Future Enhancements
 
 - Add thread-safety with mutex locks
 - Support custom hash functions
