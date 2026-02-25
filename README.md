@@ -20,24 +20,47 @@
 
 [11. Hash Tables+HashMap](./11.hashmap/readme.md)
 
-[12. Trees/Binary Trees]
-[13.Binary Search Tree+Red-Black Tree]
+[12. Trees](./12.Tree/readme.md)
 
-- Segment Trees
+[13. Binary Search Tree](./13.bst/readme.md)
+
+[14. Height Balanced Tree](./14.height-balance-tree/readme.md)
+
+[15. Red Black Trees](./15.RedBlackTree/readme.md)
+
+to do 26 feb:
+[16.Excess Trees]
+
+- B Tree(cormen chap 18)
+- Heap(cormen chap 19)
+- fibonacci heap(cormen chap 20)
+
+- Segment Trees(CP handbook: article 9.3+chap 28)
+  steven halim: article 2.4.3
 - Fenwick Trees (BIT)
+  steven halim: article 2.4.4
 
-[14.Graph]
+---
+
+[17.Graph]
 
 - [DFS]
 - [Spanning Tree]
 - [Shortest Path]
 
-[15.Dynamic Programming]
+CP Handbook(chap 19,20)
+steven halim(chap 4)
+cormen(chap 22-26)
+algorithms(chap-5, 6, 7,8,9,10,11)
+coding-interview(117-123 pdf)
+programming interview(pdf 71-78)
+
+[18.Dynamic Programming]
 
 - Advanced DP
 
-[16.Greedy]
-[17.NP Hardness]
+[19.Greedy]
+[20.NP Hardness]
 
 ## Problem Sheets
 
@@ -45,7 +68,6 @@ just take cf and practice min 50-60 problems for that particular algo
 
 - For **problem solving**, take tough problems and give enough time to think — don’t quit early. Solve problems that **feel hard** for you.
 - For **speed**, practice easy questions under time constraints (like solving `x` problems in `y` minutes).
-
 
 - [CSES Problem Set](https://cses.fi/problemset?s=08)
 - [TLE Eliminators CP Sheet](https://www.tle-eliminators.com/cp-sheet)
