@@ -28,17 +28,10 @@
 
 [15. Red Black Trees](./15.RedBlackTree/readme.md)
 
-to do 26 feb:
 [16.Excess Trees]
 
-- B Tree(cormen chap 18)
-- Heap(cormen chap 19)
-- fibonacci heap(cormen chap 20)
-
-- Segment Trees(CP handbook: article 9.3+chap 28)
-  steven halim: article 2.4.3
-- Fenwick Trees (BIT)
-  steven halim: article 2.4.4
+- [B Tree](./16.Excesstree/1.B-Tree/readme.md)
+- [Heap](./16.Excesstree/2.Heap/readme.md)
 
 ---
 
