@@ -32,8 +32,12 @@
 
 - [B Tree](./16.Excesstree/1.B-Tree/readme.md)
 - [Heap](./16.Excesstree/2.Heap/readme.md)
+- [SegmentTree](./16.Excesstree/4.SegmentTree/readme.md)
+- [Fenwick Tree](./16.Excesstree/3.FenwickTree/readme.md)
 
 ---
+
+To Do:
 
 [17.Graph]
 
@@ -67,3 +71,5 @@ just take cf and practice min 50-60 problems for that particular algo
 - [YouKn0wWho Academy Topic List- Problem Set](https://youkn0wwho.academy/topic-list)
 - [Striver’s CP Sheet](https://takeuforward.org/interview-experience/strivers-cp-sheet)
 - [USACO Guide (again, great for progression)](https://usaco.guide/problems/)
+
+[standard material](https://www.youtube.com/playlist?list=PLrS21S1jm43igE57Ye_edwds_iL7ZOAG4)
