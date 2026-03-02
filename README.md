@@ -36,21 +36,9 @@
 - [Fenwick Tree](./16.Excesstree/3.FenwickTree/readme.md)
 
 ---
-
-To Do:
-
-[17.Graph]
-
-- [DFS]
-- [Spanning Tree]
-- [Shortest Path]
-
-CP Handbook(chap 19,20)
-steven halim(chap 4)
-cormen(chap 22-26)
-algorithms(chap-5, 6, 7,8,9,10,11)
-coding-interview(117-123 pdf)
-programming interview(pdf 71-78)
+Ongoing:
+[17.Graph](./17.Graph/readme.md)
+---
 
 [18.Dynamic Programming]
 
