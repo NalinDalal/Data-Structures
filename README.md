@@ -29,7 +29,6 @@
 [15. Red Black Trees](./15.RedBlackTree/readme.md)
 
 [16.Excess Trees]
-
 - [B Tree](./16.Excesstree/1.B-Tree/readme.md)
 - [Heap](./16.Excesstree/2.Heap/readme.md)
 - [SegmentTree](./16.Excesstree/4.SegmentTree/readme.md)

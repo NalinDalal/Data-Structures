@@ -7,9 +7,7 @@
 
 | Day | Topic | Primary Read | Code | Also Read |
 |-----|-------|-------------|------|-----------|
-| 1 | Graph terminology & representation | done | done | done |
-| 2 | BFS + SSSP on unweighted graphs | CP Handbook §12.2 (pg 119-121) | `1.cpp` | Halim §4.2.2 (pg 123), Halim §4.4.1-4.4.2 (pg 146-148) |
-| 3 | DFS | CP Handbook §12.1 (pg 117-119) | `2.cpp` | Halim §4.2.1 (pg 122), Algo Advanced §2 (pg 562-569), Algorithms ch6,  Algorithms ch5(217-224), Algorithms ch6 |
+| 3(try to complete day 4 also here) | DFS | CP Handbook §12.1 (pg 117-119) | `2.cpp` | Halim §4.2.1 (pg 122), Algo Advanced §2 (pg 562-569), Algorithms ch6,  Algorithms ch5(217-224), Algorithms ch6 |
 | 4 | DFS apps: cycle detection, edge properties | CP Handbook §12.3 + §16.4 (pg 121, 155) | `3.cpp`, `4.cpp` | Halim §4.2.7 (pg 128-130) |
 
 ## Phase 2: Ordering & Connectivity (Days 5-7)

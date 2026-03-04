@@ -280,54 +280,11 @@ edges.push_back({4,1,2});
 
 | Algorithm                 | Purpose                              |
 | ------------------------- | ------------------------------------ |
+| **BFS**                   | [Breadth-first traversal](./breadth-first-search.md)|
 | **DFS**                   | Depth-first traversal                |
-| **BFS**                   | Breadth-first traversal              |
 | **Dijkstra**              | Shortest path (non-negative weights) |
 | **Bellman-Ford**          | Shortest path (can handle negatives) |
 | **Floyd-Warshall**        | All-pairs shortest path              |
 | **Kruskal’s / Prim’s**    | Minimum spanning tree (MST)          |
 | **Topological Sort**      | Linear ordering (DAGs only)          |
 | **Tarjan’s / Kosaraju’s** | Strongly connected components        |
-
-## 1. Breadth First Search
-expands the frontier between discovered and undiscovered vertices uniformly across the breadth of the frontier.
-
-Given a graph G= (V, E) and a distinguished source vertex s, breadth-first
-search systematically explores the edges of G to “discover” every vertex that is
-reachable from s.
-
-the algorithm discovers all vertices at distance k from s before discovering any
-vertices at distance k +1.
-
-the adjacency list of an already discovered vertex u, the vertex v
-and the edge (u, v) are added to the tree. We say that u is the predecessor or parent
-of v in the breadth-first tree.
-
-```
-BFS(G,s):
-1   for each vertex u ∈V [G]−{s}
-2       do color[u] ←WHITE
-3           d[u] ←∞
-4           π [u] ←NIL
-5   color[s] ←GRAY
-6   d[s] ←0
-7   π [s] ←NIL
-8   Q ←∅
-9   ENQUEUE(Q, s)
-10  while Q ̸=∅
-11      do u ←DEQUEUE(Q)
-12          for each v ∈Adj[u]
-13              do if color[v]=WHITE
-14                  then color[v] ←GRAY
-15                      d[v] ←d[u] +1
-16                      π [v] ←u
-17                      ENQUEUE(Q, v)
-18          color[u] ←BLACK
-```
-
-The operations of enqueuing and dequeuing take O(1) time, so the total time devoted to queue operations is O(V ).
-sum of the lengths
-of all the adjacency lists is Omega(E), the total time spent in scanning adjacency lists is
-O(E).
-overhead for initialization is O(V ), and thus the total running time of
-BFS is O(V +E).
