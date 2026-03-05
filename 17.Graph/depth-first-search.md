@@ -237,6 +237,39 @@ Forward and cross edges do not occur.
 - **Edge classification**: Classify edges as tree, back, forward, or cross edges.
 - **Ancestor/descendant queries**: Answer queries about relationships in DFS trees.
 
+**Example:**
+
+Consider the graph below:
+
+```mermaid
+graph LR
+    1((1)) --- 3((3))
+    3 --- 4((4))
+    2((2)) --- 5((5))
+```
+
+A DFS starting from node `1` visits nodes `1`, `3`, and `4`. Since nodes `2` and `5` are not visited, the graph is not connected.
+
+**Animation Example:**
+
+```mermaid
+graph TD
+    subgraph Component1
+        0((0)) --> 1((1))
+        1 --> 2((2))
+        2 --> 3((3))
+        3 --> 1
+        3 --> 4((4))
+    end
+    subgraph Component2
+        5((5)) --> 6((6))
+        6 --> 7((7))
+        7 --> 8((8))
+        8 --> 6
+    end
+```
+
+
 ---
 
 ## 8) Flood-Fill Algorithm
@@ -335,13 +368,135 @@ TopSortDFS(v, clock):
 
 ---
 
-## 11) Merge-ready placeholders
+## 11) Finding Cycles
 
-As you upload more material, we will append/merge into these slots:
+A graph contains a cycle if, during a DFS, we encounter a node that has already been visited and is not the direct parent of the current node.
 
-- **Book A additions**: intuition variants, pedagogical diagrams
-- **Book B additions**: formal theorems and proofs
-- **Book C additions**: competitive-programming idioms and tricks
-- **Book D additions**: edge cases, exercises, interview patterns
+Consider the graph below:
 
-I will keep one unified section ordering and reconcile notation (`d/f`, `tin/tout`, `color/visited`) so final notes stay consistent.
+```mermaid
+graph LR
+    1((1)) --- 2((2))
+    1 --- 3((3))
+    3 --- 4((4))
+    3 --- 5((5))
+    5 --- 2
+```
+
+During a DFS, if we move from node `2` to `5`, we notice that node `3` (a neighbor of `5`) has already been visited. This indicates a cycle: `3 → 2 → 5 → 3`.
+
+Another way to detect cycles is to count the number of nodes and edges in each connected component. If a component with `c` nodes has more than `c - 1` edges, it must contain a cycle.
+
+
+### Bipartiteness Check
+
+A graph is bipartite if its nodes can be colored using two colors such that no two adjacent nodes share the same color. DFS can be used to check this property by alternating colors between neighbors.
+
+#### Example
+
+Consider the graph below:
+
+```mermaid
+graph LR
+    1((1)) --- 2((2))
+    1 --- 3((3))
+    2 --- 5((5))
+    3 --- 5
+```
+
+Starting from node `1` (colored blue), we color its neighbors red. If we find two adjacent nodes with the same color (e.g., nodes `2` and `5`), the graph is not bipartite.
+
+---
+
+## 12) Cycle Detection in Successor Graphs
+
+In a successor graph (a directed graph where each node has exactly one outgoing edge), we can detect cycles and determine their properties.
+
+### Example
+
+Consider the graph below:
+
+```mermaid
+graph LR
+    1((1)) --> 2((2))
+    2 --> 3((3))
+    3 --> 4((4))
+    4 --> 5((5))
+    5 --> 6((6))
+    6 --> 4
+```
+
+Starting from node `1`, we find that the first node in the cycle is `4`, and the cycle consists of nodes `4 → 5 → 6 → 4`.
+
+### Algorithm
+
+1. Walk through the graph, keeping track of visited nodes.
+2. If a node is visited twice, it belongs to a cycle.
+3. This method runs in $O(n)$ time and uses $O(n)$ memory.
+
+---
+
+
+## 13) Floyd's Cycle Detection Algorithm
+
+Floyd's algorithm uses two pointers (`a` and `b`) to detect cycles in $O(n)$ time and $O(1)$ space.
+
+### Algorithm
+
+#### Step 1: Detect Cycle
+
+```text
+a = succ(x)
+b = succ(succ(x))
+while (a != b):
+  a = succ(a)
+  b = succ(succ(b))
+```
+
+#### Step 2: Find Start of Cycle
+
+```text
+a = x
+while (a != b):
+  a = succ(a)
+  b = succ(b)
+first = a
+```
+
+#### Step 3: Calculate Cycle Length
+
+```text
+b = succ(a)
+length = 1
+while (a != b):
+  b = succ(b)
+  length++
+```
+
+---
+
+## 14) Graph Edge Classification via DFS Spanning Tree
+
+DFS can classify edges into the following types:
+
+1. **Tree Edge**: Leads to a previously unvisited node.
+2. **Back Edge**: Leads to an ancestor in the DFS tree (indicates a cycle).
+3. **Forward/Cross Edge**: Leads to a descendant or a previously visited node that is not an ancestor.
+
+### Example
+
+Consider the graph below:
+
+```mermaid
+graph LR
+    0((0)) --> 1((1))
+    1 --> 2((2))
+    2 --> 3((3))
+    3 --> 1
+    3 --> 4((4))
+    4 --> 5((5))
+    5 --> 6((6))
+    6 --> 7((7))
+    7 --> 8((8))
+    8 --> 6
+```
