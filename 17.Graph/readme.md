@@ -281,7 +281,7 @@ edges.push_back({4,1,2});
 | Algorithm                 | Purpose                              |
 | ------------------------- | ------------------------------------ |
 | **BFS**                   | [Breadth-first traversal](./breadth-first-search.md)|
-| **DFS**                   | Depth-first traversal                |
+| **DFS**                   | [Depth-first traversal](./depth-first-search.md)                |
 | **Dijkstra**              | Shortest path (non-negative weights) |
 | **Bellman-Ford**          | Shortest path (can handle negatives) |
 | **Floyd-Warshall**        | All-pairs shortest path              |
