@@ -43,6 +43,8 @@ Ongoing:
 
 - Advanced DP
 
+resources: https://www.youtube.com/playlist?list=PLcXpkI9A-RZI-xF76L0sZq_u-k_yHz8pd
+
 [19.Greedy]
 [20.NP Hardness]
 
