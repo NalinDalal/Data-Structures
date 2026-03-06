@@ -1,14 +1,12 @@
 # Complete Graph Study Plan (19 Days)
 02.03-20.03
 
-> **You will read EVERYTHING.** "Primary" = read first for clarity. "Also Read" = read same day, after primary.
 
 ## Phase 2: Ordering & Connectivity (Days 5-7)
 
 | Day | Topic | Primary Read | Code | Also Read |
 |-----|-------|-------------|------|-----------|
-| 5(06.03) | Topological sort + DP on DAGs | CP Handbook §16.1-16.2 (pg 149-153) | `8.cpp` | Halim §4.2.5 (pg 126-128), Algo Advanced §3 (pg 571-573),  |
-| 6 | Connected components, flood fill, bipartite check | Halim §4.2.3-4.2.6 (pg 125-128) | — | CP Handbook §12.3 (pg 121) |
+| 6(07.03) | Connected components, flood fill, bipartite check | Halim §4.2.3-4.2.6 (pg 125-128) | — | CP Handbook §12.3 (pg 121) |
 | 7 | Articulation points & bridges | Halim §4.2.8 (pg 130-133) | — | Algorithms ch6 |
 
 ## Phase 3: Tree Algorithms (Day 8)
