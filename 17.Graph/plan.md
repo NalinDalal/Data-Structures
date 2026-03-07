@@ -1,19 +1,10 @@
 # Complete Graph Study Plan (19 Days)
-02.03-20.03
-
-
-## Phase 2: Ordering & Connectivity (Days 5-7)
-
-| Day | Topic | Primary Read | Code | Also Read |
-|-----|-------|-------------|------|-----------|
-| 6(07.03) | Connected components, flood fill, bipartite check | Halim §4.2.3-4.2.6 (pg 125-128) | — | CP Handbook §12.3 (pg 121) |
-| 7 | Articulation points & bridges | Halim §4.2.8 (pg 130-133) | — | Algorithms ch6 |
 
 ## Phase 3: Tree Algorithms (Day 8)
 
 | Day | Topic | Primary Read | Code | Also Read |
 |-----|-------|-------------|------|-----------|
-| 8 | Tree traversal, diameter, all longest paths, binary trees | CP Handbook §14 (pg 133-139) | — | Halim §4.7.2 (pg 178) |
+| 8(08.03) | Tree traversal, diameter, all longest paths, binary trees | CP Handbook §14 (pg 133-139) | — | Halim §4.7.2 (pg 178) |
 
 ## Phase 4: MST (Days 9-10)
 
