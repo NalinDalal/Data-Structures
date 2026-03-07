@@ -283,6 +283,8 @@ edges.push_back({4,1,2});
 | **BFS**                   | [Breadth-first traversal](./breadth-first-search.md)|
 | **DFS**                   | [Depth-first traversal](./depth-first-search.md)                |
 | **DAG**                   | [DAG+Topological Sort](./dag+topological.md)|
+|**Connected components, flood fill, bipartite check** | [connected components](./connected-components.md) |
+|**Articulation points & bridges**| [articulation points](./articulation-scc.md)|
 | **Dijkstra**              | Shortest path (non-negative weights) |
 | **Bellman-Ford**          | Shortest path (can handle negatives) |
 | **Floyd-Warshall**        | All-pairs shortest path              |
