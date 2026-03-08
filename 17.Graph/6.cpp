@@ -1,95 +1,85 @@
 /*
-Krushkal's Algorithm
+Kruskal's Algorithm for Minimum Spanning Tree (MST)
+--------------------------------------------------
+Finds MST of a weighted undirected graph using union-find.
 
-Spanning Tree
-Given an undirected and connected graph G(V, E), 
-a spanning tree of the graph G is a tree that 
-spans G (that is, it includes every vertex of G) and is a subgraph of G (every edge in the tree belongs to G).
+Steps:
+1. Sort all edges by weight.
+2. Iterate through sorted edges:
+   - If adding edge forms a cycle, skip it.
+   - Otherwise, include edge in MST and merge sets.
 
-Cost=sum(weight of all edges in tree)
-
-minimum Spanning Tree-cost is minimum
-
-PseudoCode:
-
-1. Sort the edges in increasing order of their weights.
-2. Iterate in the sorted edges,
-        If inclusion of i'th edge leads to a cycle, then skip this edge. 
-        else 
-            include the edge in the MST.
-
-Sorted Edges(w,u,v) : {1,5,8), 11,8,7}, 12,4,3}, {5,1,2}, {5,3,5},
-{6,2,3%, 17,6, 7}, 19,1,4}, {10,5,6}
-
-Time Complexity-O(E log V)
-Space Complexity-O(E+V)
+Time Complexity: O(E log V)
+Space Complexity: O(E + V)
 */
 
-//#include "bits/stdc++.h"
 #include <iostream>
 #include <vector>
-#include <stack>
 #include <algorithm>
-
 using namespace std;
 
-const int N=1e5+6;
-vector<int> parent(N);
-vector<int> sz(N);
-void make_set(int v){
-    parent[v]=v;
-    sz[v]=1;
+const int N = 1e5 + 6;
+vector<int> parent(N); // parent[i] = parent of node i
+vector<int> sz(N);     // sz[i] = size of set rooted at i
+
+// Initialize set for element v
+void make_set(int v) {
+    parent[v] = v;
+    sz[v] = 1;
 }
 
-int find_set(int v){
-    if(v==parent[v])
+// Find representative of set containing v (with path compression)
+int find_set(int v) {
+    if (v == parent[v])
         return v;
-    return parent[v]=find_set(parent[v]);
+    return parent[v] = find_set(parent[v]);
 }
 
-void union_sets(int a,int b){
-    a=find_set(a);
-    b=find_set(b);
-    if(a!=b){
-        if(sz[a]<sz[b])
-            swap(a,b);
-        parent[b]=a;
-        sz[a]+=sz[b];
+// Merge sets containing a and b (by size)
+void union_sets(int a, int b) {
+    a = find_set(a);
+    b = find_set(b);
+    if (a != b) {
+        if (sz[a] < sz[b])
+            swap(a, b);
+        parent[b] = a;
+        sz[a] += sz[b];
     }
 }
 
-int32_t main(){
-    for(int i=0;i<N;i++){
+int32_t main() {
+    // Initialize all sets
+    for (int i = 0; i < N; i++) {
         make_set(i);
     }
-    int n,m;
-    cin>>n>>m;
-    vector<vector<int> > edges;
-    for(int i=0;i<m;i++){
-        int u,v,w;
-        cin>>u>>v>>w;
-        //edges.push_back({w,u,v});
-        //edges.push_back(vector<int>{w, u, v});
-        edges.push_back(vector<int>());
-        edges.back().push_back(w);
-        edges.back().push_back(u);
-        edges.back().push_back(v);
 
+    int n, m;
+    cin >> n >> m;
+    vector<vector<int>> edges;
+    // Read edges: u, v, w
+    for (int i = 0; i < m; i++) {
+        int u, v, w;
+        cin >> u >> v >> w;
+        edges.push_back({w, u, v}); // Store as (weight, u, v)
     }
-    sort(edges.begin(),edges.end());
-    int cost=0;
-    for(auto i:edges){
-        int w=i[0];
-        int u=i[1];
-        int v=i[2];
-        int x=find_set(u);
-        int y=find_set(v);
-        if(x==y){continue;}
-        else{
-            cout<<u<<" "<<v<<"\n";
-            cost+=w;
-            union_sets(u,v);
+
+    // Sort edges by weight
+    sort(edges.begin(), edges.end());
+    int cost = 0;
+    // Kruskal's algorithm: build MST
+    for (auto i : edges) {
+        int w = i[0];
+        int u = i[1];
+        int v = i[2];
+        int x = find_set(u);
+        int y = find_set(v);
+        if (x == y) {
+            continue; // Skip edge if it forms a cycle
+        } else {
+            cout << u << " " << v << "\n"; // Output MST edge
+            cost += w; // Add edge weight to total cost
+            union_sets(u, v); // Merge sets
         }
     }
-    cout<<cost;
+    cout << cost; // Output total cost of MST
 }
