@@ -288,6 +288,7 @@ edges.push_back({4,1,2});
 | **Dijkstra**              | Shortest path (non-negative weights) |
 | **Bellman-Ford**          | Shortest path (can handle negatives) |
 | **Floyd-Warshall**        | All-pairs shortest path              |
-| **Kruskal’s / Prim’s**    | Minimum spanning tree (MST)          |
+| **Kruskal’s**    | [Minimum spanning tree (MST)](./UnionFind-Kruskal.md)          |
+| **Prim's**        | [Minimum spanning tree (MST)](./Prims.md)
 | **Topological Sort**      | Linear ordering (DAGs only)          |
 | **Tarjan’s / Kosaraju’s** | Strongly connected components        |
