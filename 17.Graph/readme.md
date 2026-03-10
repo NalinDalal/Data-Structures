@@ -285,7 +285,7 @@ edges.push_back({4,1,2});
 | **DAG**                   | [DAG+Topological Sort](./dag+topological.md)|
 |**Connected components, flood fill, bipartite check** | [connected components](./connected-components.md) |
 |**Articulation points & bridges**| [articulation points](./articulation-scc.md)|
-| **Dijkstra**              | Shortest path (non-negative weights) |
+| **Dijkstra**              | [Shortest path (non-negative weights)](./dijkstra.md) |
 | **Bellman-Ford**          | Shortest path (can handle negatives) |
 | **Floyd-Warshall**        | All-pairs shortest path              |
 | **Kruskal’s**    | [Minimum spanning tree (MST)](./UnionFind-Kruskal.md)          |
