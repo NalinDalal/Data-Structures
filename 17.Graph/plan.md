@@ -4,8 +4,7 @@
 
 | Day | Topic | Primary Read | Code | Also Read |
 |-----|-------|-------------|------|-----------|
-| 11 | Bellman-Ford (SSSP, negative weights) | CP Handbook §13.1 (pg 123-126) | `10.cpp` | Halim §4.4.4 (pg 151-155); cormen(610-616); Algo(article 8.7: 307-326) |
-| 12 | Floyd-Warshall (APSP) + APSP applications | CP Handbook §13.3 (pg 129-132) | `11.cpp` | Halim §4.5.1-4.5.3 (pg 155-158), Algo Advanced §6 (pg 642-661), Algorithms ch9 |
+| 12 | Floyd-Warshall (APSP) + APSP applications | CP Handbook §13.3 (pg 129-132) | `11.cpp` | Halim §4.5.1-4.5.3 (pg 155-158), Algo Advanced §6 (pg 642-661), Algorithms ch9(327-345) |
 
 ## Phase 6: SCC & Directed Graphs (Days 13-14)
 
