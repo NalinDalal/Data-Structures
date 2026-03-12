@@ -287,7 +287,7 @@ edges.push_back({4,1,2});
 |**Articulation points & bridges**| [articulation points](./articulation-scc.md)|
 | **Dijkstra**              | [Shortest path (non-negative weights)](./dijkstra.md) |
 | **Bellman-Ford**          | [Shortest path (can handle negatives)](./bellman-ford.md) |
-| **Floyd-Warshall**        | All-pairs shortest path              |
+| **Floyd-Warshall**        | [All-pairs shortest path](./floyd-warshall.md)              |
 | **Kruskal’s**    | [Minimum spanning tree (MST)](./UnionFind-Kruskal.md)          |
 | **Prim's**        | [Minimum spanning tree (MST)](./Prims.md)
 | **Topological Sort**      | Linear ordering (DAGs only)          |
