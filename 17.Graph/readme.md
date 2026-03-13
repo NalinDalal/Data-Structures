@@ -291,4 +291,4 @@ edges.push_back({4,1,2});
 | **Kruskal’s**    | [Minimum spanning tree (MST)](./UnionFind-Kruskal.md)          |
 | **Prim's**        | [Minimum spanning tree (MST)](./Prims.md)
 | **Topological Sort**      | Linear ordering (DAGs only)          |
-| **Tarjan’s / Kosaraju’s** | Strongly connected components        |
+| **Tarjan’s / Kosaraju’s** | [Strongly connected components](./strong-connected-components.md)        |

@@ -1,10 +1,9 @@
 # Complete Graph Study Plan
 
-## Phase 6: SCC & Directed Graphs (Days 13-14)
+## Phase 6: SCC & Directed Graphs (Days 14)
 
 | Day | Topic | Primary Read | Code | Also Read |
 |-----|-------|-------------|------|-----------|
-| 13 | Kosaraju's algorithm (SCC) | CP Handbook §17.1 (pg 157-160) | — | Halim §4.2.9 (pg 133-137) |
 | 14 | 2SAT + successor paths + DP on directed graphs | CP Handbook §16.3 + §17.2 (pg 154-155, 160-162) | — | Halim §4.7.1 (pg 171-178) |
 
 ## Phase 7: Network Flow (Days 15-16)
