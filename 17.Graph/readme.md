@@ -289,6 +289,6 @@ edges.push_back({4,1,2});
 | **Bellman-Ford**          | [Shortest path (can handle negatives)](./bellman-ford.md) |
 | **Floyd-Warshall**        | [All-pairs shortest path](./floyd-warshall.md)              |
 | **Kruskal’s**    | [Minimum spanning tree (MST)](./UnionFind-Kruskal.md)          |
-| **Prim's**        | [Minimum spanning tree (MST)](./Prims.md)
-| **Topological Sort**      | Linear ordering (DAGs only)          |
+| **Prim's**        | [Minimum spanning tree (MST)](./Prims.md) |
+| **Directed Graphs** | [Directed-Graphs](./directed-graph.md) |
 | **Tarjan’s / Kosaraju’s** | [Strongly connected components](./strong-connected-components.md)        |
