@@ -293,3 +293,4 @@ edges.push_back({4,1,2});
 | **Directed Graphs** | [Directed-Graphs](./directed-graph.md) |
 | **Tarjan’s / Kosaraju’s** | [Strongly connected components](./strong-connected-components.md)        |
 | **Ford Fulkerson & Edmond Karp**| [Maximum Flow & Minimum Cut](./ford-fulkerson&Edmond-Karp.md) |
+| **Flows & Cuts** | [Flows and Cuts](./flows-cuts.md) |

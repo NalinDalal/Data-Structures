@@ -1,11 +1,5 @@
 # Complete Graph Study Plan
 
-## Phase 7: Network Flow (Days 15-16)
-
-| Day | Topic | Primary Read | Also Read |
-|-----|-------|-------------|-----------|
-| 16 | Flow apps: disjoint paths, matchings, path covers, modeling | CP Handbook §20.2-20.4 (pg 186-190) | Halim §4.6.4-4.6.6 (pg 166-168), Algorithms ch11 |
-
 ## Phase 8: Tree Queries & Special Graphs (Days 17-18)
 
 | Day | Topic | Primary Read | Also Read |
