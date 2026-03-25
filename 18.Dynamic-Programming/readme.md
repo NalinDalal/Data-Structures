@@ -1,12 +1,3 @@
-cormen: chap 15(344-390)
-programming challenges: 265-288
-algorithms: chap 3(115-141)
-
-CP Handbook: 75-86(pdf)
-
-------
-
-
 # Dynamic programming
 
 So basically dynamic programming says to optimise a problem solution via breaking it down into sub-problems so that the it remembers past to avoid recomputing for tough sub-problems
@@ -27,3 +18,15 @@ we need to optimise the solution, call it *optimal solution*
 There are multiple standard topics, let's take alook at them one-by-one:
 
 [Assembly Line Scheduling](./AssemblyLineSchedule.md)
+[Foundation](./Foundation.md)
+
+
+
+Problems:
+
+* Fibonacci (top-down + bottom-up)
+* Coin change (min coins)
+* Dice combinations (CSES)
+
+
+https://www.youtube.com/playlist?list=PLcXpkI9A-RZI-xF76L0sZq_u-k_yHz8pd

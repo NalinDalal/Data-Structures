@@ -34,16 +34,14 @@
 - [SegmentTree](./16.Excesstree/4.SegmentTree/readme.md)
 - [Fenwick Tree](./16.Excesstree/3.FenwickTree/readme.md)
 
+[17. Graph](./17.Graph/readme.md)
+
 ---
+
 Ongoing:
-[17.Graph](./17.Graph/readme.md)
+[18.Dynamic Programming](./18.Dynamic-Programming/readme.md)
+
 ---
-
-[18.Dynamic Programming]
-
-- Advanced DP
-
-resources: https://www.youtube.com/playlist?list=PLcXpkI9A-RZI-xF76L0sZq_u-k_yHz8pd
 
 [19.Greedy]
 [20.NP Hardness]
