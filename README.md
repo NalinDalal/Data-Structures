@@ -54,9 +54,6 @@ just take cf and practice min 50-60 problems for that particular algo
 - For **speed**, practice easy questions under time constraints (like solving `x` problems in `y` minutes).
 
 - [CSES Problem Set](https://cses.fi/problemset?s=08)
-- [TLE Eliminators CP Sheet](https://www.tle-eliminators.com/cp-sheet)
-- [YouKn0wWho Academy Topic List- Problem Set](https://youkn0wwho.academy/topic-list)
 - [Striver’s CP Sheet](https://takeuforward.org/interview-experience/strivers-cp-sheet)
-- [USACO Guide (again, great for progression)](https://usaco.guide/problems/)
 
 [standard material](https://www.youtube.com/playlist?list=PLrS21S1jm43igE57Ye_edwds_iL7ZOAG4)

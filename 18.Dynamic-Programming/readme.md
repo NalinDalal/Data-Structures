@@ -19,6 +19,7 @@ There are multiple standard topics, let's take alook at them one-by-one:
 
 [Assembly Line Scheduling](./AssemblyLineSchedule.md)
 [Foundation](./Foundation.md)
+[Longest Increasing SubSequence](./LIS.md)
 
 
 

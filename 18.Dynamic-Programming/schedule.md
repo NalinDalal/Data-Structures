@@ -70,30 +70,6 @@ CP Handbook: 75-86(pdf)
 
 # Day-wise Plan
 
-## Day 2 — 1D DP Patterns (LIS + Subset)
-
-### Study (2 hrs)
-
-* Algorithms 3.6 Longest Increasing Subsequence
-* CP Handbook 7.2 LIS
-* Algorithms 3.8 Subset Sum
-
-### Core concept
-
-dp[i]=\max(dp[j]+1)\text{ for }j<i\text{ and }a_j<a_i
-
-### Practice (1.5 hr)
-
-* LIS (O(n²) version)
-* Subset sum
-* Partition equal subset sum
-
-### Pattern learned
-
-State depends on **previous elements**
-
----
-
 ## Day 3 — 2D Grid DP
 
 ### Study (2 hrs)

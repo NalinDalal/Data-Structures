@@ -223,30 +223,29 @@ Similar patterns appear in:
 
 ---
 
-# 12. Minimal Implementation (Python)
+# 12. Minimal Implementation (C++)
 
-```python
-def fastest_way(a1, a2, t1, t2, e1, e2, x1, x2):
-    n = len(a1)
+```cpp
+#include <vector>
+#include <algorithm>
+using namespace std;
 
-    f1 = [0]*n
-    f2 = [0]*n
-
-    f1[0] = e1 + a1[0]
-    f2[0] = e2 + a2[0]
-
-    for j in range(1,n):
-
-        f1[j] = min(
-            f1[j-1] + a1[j],
-            f2[j-1] + t2[j-1] + a1[j]
-        )
-
-        f2[j] = min(
-            f2[j-1] + a2[j],
-            f1[j-1] + t1[j-1] + a2[j]
-        )
-
-    return min(f1[n-1] + x1, f2[n-1] + x2)
+int fastest_way(const vector<int>& a1, const vector<int>& a2,
+                const vector<int>& t1, const vector<int>& t2,
+                int e1, int e2, int x1, int x2) {
+    int n = a1.size();
+    
+    vector<int> f1(n), f2(n);
+    
+    f1[0] = e1 + a1[0];
+    f2[0] = e2 + a2[0];
+    
+    for (int j = 1; j < n; j++) {
+        f1[j] = min(f1[j-1] + a1[j], f2[j-1] + t2[j-1] + a1[j]);
+        f2[j] = min(f2[j-1] + a2[j], f1[j-1] + t1[j-1] + a2[j]);
+    }
+    
+    return min(f1[n-1] + x1, f2[n-1] + x2);
+}
 ```
 
