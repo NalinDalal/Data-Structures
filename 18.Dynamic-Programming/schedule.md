@@ -70,28 +70,8 @@ CP Handbook: 75-86(pdf)
 
 # Day-wise Plan
 
-## Day 3 — 2D Grid DP
 
-### Study (2 hrs)
 
-* CP Handbook 7.3 Paths in grid
-* Algorithms 3.3 Interpunctio Verborum Redux
-
-### Core concept
-
-dp[i][j]=dp[i-1][j]+dp[i][j-1]
-
-### Practice
-
-* Unique paths
-* Minimum path sum
-* Grid with obstacles
-
-### Pattern learned
-
-State depends on **2 dimensions**
-
----
 
 ## Day 4 — Edit Distance + String DP
 
