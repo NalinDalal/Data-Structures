@@ -1,6 +1,5 @@
 cormen: chap 15(344-390)
 15 Dynamic Programming 323
-15.1 Assembly-line scheduling 324
 15.2 Matrix-chain multiplication 331
 15.3 Elements of dynamic programming 339
 15.4 Longest common subsequence 350
@@ -70,29 +69,6 @@ CP Handbook: 75-86(pdf)
 
 # Day-wise Plan
 
-
-
-
-## Day 4 — Edit Distance + String DP
-
-### Study (2 hrs)
-
-* Algorithms 3.7 Edit Distance
-* Programming Challenges 11.2, 11.4
-* CP Handbook 7.5 Edit distance
-
-### Core concept
-
-dp[i][j]=\min\begin{cases}dp[i-1][j]+1\dp[i][j-1]+1\dp[i-1][j-1]+cost\end{cases}
-
-### Practice
-
-* Edit distance
-* Delete operations
-* Distinct subsequences (11.6.2)
-
----
-
 ## Day 5 — LCS + Reconstruction
 
 ### Study (2 hrs)
@@ -159,38 +135,3 @@ E[i,j]=\min_{r=i}^{j}(E[i,r-1]+E[r+1,j]+W[i,j])
 * Optimal BST understanding
 * TSP grid variant
 * Tree DP example
-
----
-
-# Daily Time Split
-
-| Activity           | Time     |
-| ------------------ | -------- |
-| Concept reading    | 1.5 hr   |
-| Implement examples | 1 hr     |
-| Solve problems     | 1–1.5 hr |
-
----
-
-# Order of Programming Challenges problems
-
-Do in this order:
-
-1. Distinct Subsequences
-2. Weights and Measures
-3. Unidirectional TSP
-4. Cutting Sticks
-5. Ferry Loading
-6. Chopsticks
-7. Adventures in Moving
-
----
-
-# Weekly repetition strategy
-
-Week 1 → understand patterns
-Week 2 → re-solve without notes
-Week 3 → solve 20 random DP problems
-
-
-
