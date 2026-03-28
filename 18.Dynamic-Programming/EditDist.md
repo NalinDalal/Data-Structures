@@ -32,9 +32,20 @@ given a string x of length n and a string y of length m, and we want to calculat
 
 
 Relation:
-[
-$ Edit(i,j)=\min\begin{cases}Edit(i-1,j)+1\Edit(i,j-1)+1\Edit(i-1,j-1)+[A_i \ne B_j]\end{cases}$
-]
+$$ 
+Edit(i,j)=\min\begin{cases}Edit(i-1,j)+1\Edit(i,j-1)+1\Edit(i-1,j-1)+[A_i \ne B_j]\end{cases}
+$$
+
+
+$$
+Edit(i,j) = \min \begin{cases}
+Edit(i-1,j) + 1 \\
+Edit(i,j-1) + 1 \\
+Edit(i-1,j-1) + [A_i \ne B_j]
+\end{cases}
+$$
+
+
 
 | Case                    | Operation  | Explanation        |
 | ----------------------- | ---------- | ------------------ |
