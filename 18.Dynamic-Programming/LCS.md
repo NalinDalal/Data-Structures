@@ -1,51 +1,40 @@
-
-
-
-
-[$
-dp[i][j]=\begin{cases}dp[i-1][j-1]+1 & x_i=y_j\\max(dp[i-1][j],dp[i][j-1]) & x_i\ne y_j\end{cases}
-$]
-------------
-
 # Longest Common Subsequence (LCS)
 
 ## Problem Definition
 
 Given two sequences:
-
-- X = (x₁, x₂, ..., xₘ)
-- Y = (y₁, y₂, ..., yₙ)
+- X = (x1, x2, ..., xm)
+- Y = (y1, y2, ..., yn)
 
 A **subsequence** is a sequence derived by deleting zero or more elements **without changing order**.
 
 A **Longest Common Subsequence (LCS)** is the longest sequence that is a subsequence of **both X and Y**.
 
-Example:
+### Example
 
-X = (A, B, C, B, D, A, B)  
+X = (A, B, C, B, D, A, B)
 Y = (B, D, C, A, B, A)
 
-Possible common subsequences:
+**Possible common subsequences:**
 - (B, C, A)
 - (B, D, A)
 - (B, C, B, A)
 
-LCS:
-- (B, C, B, A)
-- length = 4
+**LCS:**
+- (B, C, B, A) — length = 4
 
 ---
 
-## Why LCS matters
+## Why LCS Matters
 
-Applications:
+**Applications:**
 - DNA sequence similarity
-- diff tools (Git)
-- plagiarism detection
-- version control merging
-- bioinformatics
-- spell correction
-- text comparison
+- Diff tools (Git)
+- Plagiarism detection
+- Version control merging
+- Bioinformatics
+- Spell correction
+- Text comparison
 
 ---
 
@@ -54,14 +43,13 @@ Applications:
 ### Optimal Substructure
 
 If:
+- xm = yn  
+  then LCS(X, Y) = LCS(Xm-1, Yn-1) + xm
 
-- xₘ = yₙ  
-  then LCS(X, Y) = LCS(Xₘ₋₁, Yₙ₋₁) + xₘ
-
-- xₘ ≠ yₙ  
+- xm != yn  
   then LCS(X, Y) = max(
-      LCS(Xₘ₋₁, Y),
-      LCS(X, Yₙ₋₁)
+      LCS(Xm-1, Y),
+      LCS(X, Yn-1)
     )
 
 ---
@@ -70,7 +58,7 @@ If:
 
 Let:
 
-`c[i][j] = length of LCS of X₁..i and Y₁..j`
+`c[i][j]` = length of LCS of X1..i and Y1..j
 
 $$
 dp[i][j]=
@@ -92,13 +80,11 @@ LCS length of:
 - prefix of X of length i
 - prefix of Y of length j
 
-Matrix size:
-(m+1) × (n+1)
+**Matrix size:** (m+1) x (n+1)
 
-Base condition:
-
-`c[i][0] = 0`
-`c[0][j] = 0`
+**Base condition:**
+- `c[i][0] = 0`
+- `c[0][j] = 0`
 
 ---
 
@@ -107,137 +93,113 @@ Base condition:
 ### Compute LCS Length
 
 ```pseudo
-LCS-LENGTH(X, Y)
+LCS-LENGTH(X, Y):
+    m = length(X)
+    n = length(Y)
 
-m = length(X)
-n = length(Y)
+    create table c[0..m][0..n]
+    create table b[1..m][1..n]
 
-create table c[0..m][0..n]
-create table b[1..m][1..n]
+    for i = 0 to m
+        c[i][0] = 0
 
-for i = 0 to m
-    c[i][0] = 0
+    for j = 0 to n
+        c[0][j] = 0
 
-for j = 0 to n
-    c[0][j] = 0
+    for i = 1 to m
+        for j = 1 to n
 
-for i = 1 to m
-    for j = 1 to n
+            if X[i] == Y[j]
+                c[i][j] = c[i-1][j-1] + 1
+                b[i][j] = "diag"
 
-        if X[i] == Y[j]
+            else if c[i-1][j] >= c[i][j-1]
+                c[i][j] = c[i-1][j]
+                b[i][j] = "up"
 
-            c[i][j] = c[i-1][j-1] + 1
-            b[i][j] = "↖"
+            else
+                c[i][j] = c[i][j-1]
+                b[i][j] = "left"
 
-        else if c[i-1][j] >= c[i][j-1]
+    return c, b
+```
 
-            c[i][j] = c[i-1][j]
-            b[i][j] = "↑"
-
-        else
-
-            c[i][j] = c[i][j-1]
-            b[i][j] = "←"
-
-return c, b
-````
-
-Time Complexity:
-O(mn)
-
-Space Complexity:
-O(mn)
+**Time Complexity:** O(mn)
+**Space Complexity:** O(mn)
 
 ---
 
-## Constructing the LCS sequence
+## Constructing the LCS Sequence
 
 Backtrack using table b:
 
 ```pseudo
-PRINT-LCS(b, X, i, j)
+PRINT-LCS(b, X, i, j):
+    if i == 0 or j == 0
+        return
 
-if i == 0 or j == 0
-    return
+    if b[i][j] == "diag"
+        PRINT-LCS(b, X, i-1, j-1)
+        print X[i]
 
-if b[i][j] == "↖"
+    else if b[i][j] == "up"
+        PRINT-LCS(b, X, i-1, j)
 
-    PRINT-LCS(b, X, i-1, j-1)
-    print X[i]
-
-else if b[i][j] == "↑"
-
-    PRINT-LCS(b, X, i-1, j)
-
-else
-
-    PRINT-LCS(b, X, i, j-1)
+    else
+        PRINT-LCS(b, X, i, j-1)
 ```
 
-Time Complexity:
-O(m + n)
+**Time Complexity:** O(m + n)
 
 ---
 
-## Example DP Table
+## Example
 
 X = (A, B, C, B, D, A, B)
 Y = (B, D, C, A, B, A)
 
-Final LCS length:
-
-4
-
-One LCS:
-
-BCBA
+**Final LCS length:** 4
+**One LCS:** BCBA
 
 ---
 
 ## Space Optimization
 
-Observation:
+### Observation
 
 Each entry depends only on:
+- `c[i-1][j]`
+- `c[i][j-1]`
+- `c[i-1][j-1]`
 
-* `c[i-1][j]`
-* `c[i][j-1]`
-* `c[i-1][j-1]`
-
-Therefore:
+### Optimization
 
 We only need **2 rows** instead of full table.
 
-Space complexity improves:
+**Space complexity improves:** O(mn) -> O(min(m,n))
 
-O(mn) → O(min(m,n))
-
-Limitation:
-Cannot reconstruct sequence easily (only length).
+**Limitation:** Cannot reconstruct sequence easily (only length).
 
 ---
 
 ## Key Patterns to Recognize LCS Problems
 
-Indicators:
-
-* "longest subsequence"
-* "keep order"
-* "minimum insertions/deletions"
-* "similarity score"
-* "diff between strings"
-* "DNA comparison"
-* "common pattern"
+**Indicators:**
+- "longest subsequence"
+- "keep order"
+- "minimum insertions/deletions"
+- "similarity score"
+- "diff between strings"
+- "DNA comparison"
+- "common pattern"
 
 ---
 
 ## Complexity Summary
 
-| Step                 | Complexity  |
+| Step                  | Complexity  |
 | -------------------- | ----------- |
 | DP table computation | O(mn)       |
 | LCS reconstruction   | O(m+n)      |
 | Space                | O(mn)       |
 | Optimized space      | O(min(m,n)) |
-
-

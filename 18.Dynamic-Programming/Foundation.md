@@ -2,7 +2,9 @@
 
 Dynamic programming combines the **correctness of complete search** with the **efficiency of greedy algorithms**. It applies when a problem can be divided into **overlapping subproblems** that can be solved independently.
 
-Two key ingredients required for dynamic programming:
+---
+
+## Two Key Ingredients
 
 1. **Optimal Substructure** — An optimal solution contains optimal solutions to its subproblems.
 2. **Overlapping Subproblems** — The same subproblems are solved repeatedly.
@@ -62,7 +64,6 @@ If the sub-solution for 6 were not optimal, we could improve the whole solution.
 #### More Examples of Optimal Substructure
 
 | Problem                        | Optimal Substructure Explanation |
-
 |--------------------------------|----------------------------------|
 
 | **Fibonacci**                  | `F(n)` is built from `F(n-1) + F(n-2)` — both must be optimal (only one way) |

@@ -1,20 +1,16 @@
 # Assembly Line Scheduling
 
-
 A factory has **2 assembly lines**, each with **n stations**.
 
 At each station:
+- You spend some processing time
+- Optionally switch to the other line (costs transfer time)
 
-* you spend some processing time
-* optionally switch to the other line (costs transfer time)
-
-Goal:
-
-> Find the **minimum total time** for a product to pass through all stations.
+**Goal:** Find the **minimum total time** for a product to pass through all stations.
 
 ---
 
-# 2. Visual Model
+## Visual Model
 
 ```mermaid
 flowchart LR
@@ -54,61 +50,62 @@ S2n --> End
 
 ---
 
-# 3. Terminology 
+## Terminology
 
 | Symbol | Meaning                                   |
 | ------ | ----------------------------------------- |
-| a₁ⱼ    | time at station j on line 1               |
-| a₂ⱼ    | time at station j on line 2               |
-| t₁ⱼ    | transfer time from line 1 → line 2        |
-| t₂ⱼ    | transfer time from line 2 → line 1        |
-| e₁, e₂ | entry time for line 1, line 2             |
-| x₁, x₂ | exit time for line 1, line 2              |
-| f₁[j]  | fastest time to reach station j on line 1 |
-| f₂[j]  | fastest time to reach station j on line 2 |
+| a1,j   | time at station j on line 1              |
+| a2,j   | time at station j on line 2              |
+| t1,j   | transfer time from line 1 to line 2      |
+| t2,j   | transfer time from line 2 to line 1      |
+| e1, e2 | entry time for line 1, line 2            |
+| x1, x2 | exit time for line 1, line 2             |
+| f1[j]  | fastest time to reach station j on line 1|
+| f2[j]  | fastest time to reach station j on line 2|
 
 ---
 
-# 4. Optimal Substructure 
+## Optimal Substructure
 
-To reach station **j** on line 1:
+To reach station **j** on line 1, either:
+1. Came from previous station on same line
+2. Transferred from line 2
 
-Either:
-
-1. came from previous station on same line
-2. transferred from line 2
-
-Thus solution depends only on best previous solutions → **Dynamic Programming**
+Thus solution depends only on best previous solutions — **Dynamic Programming**
 
 ---
 
-# 5. Recurrence Relations 
+## Recurrence Relations
 
-### Base case
-
-f_1(1)=e_1+a_{1,1}
-
-f_2(1)=e_2+a_{2,1}
-
----
+### Base Case
+```
+f1(1) = e1 + a1,1
+f2(1) = e2 + a2,1
+```
 
 ### Transition
+```
+f1(j) = min(
+    f1(j-1) + a1,j,
+    f2(j-1) + t2,j-1 + a1,j
+)
 
-f_1(j)=\min(f_1(j-1)+a_{1,j},; f_2(j-1)+t_{2,j-1}+a_{1,j})
-
-f_2(j)=\min(f_2(j-1)+a_{2,j},; f_1(j-1)+t_{1,j-1}+a_{2,j})
-
----
+f2(j) = min(
+    f2(j-1) + a2,j,
+    f1(j-1) + t1,j-1 + a2,j
+)
+```
 
 ### Final Answer
-
-f^*=\min(f_1(n)+x_1,; f_2(n)+x_2)
+```
+f* = min(f1(n) + x1, f2(n) + x2)
+```
 
 ---
 
-# 6. DP Table Structure 
+## DP Table Structure
 
-We compute values left → right:
+We compute values left to right:
 
 | j   | f1[j]    | f2[j]    |
 | --- | -------- | -------- |
@@ -118,45 +115,37 @@ We compute values left → right:
 | ... | ...      | ...      |
 | n   | result   | result   |
 
-Time complexity:
-
-O(n)
-
-Space complexity:
-
-O(n) → reducible to O(1)
+**Time complexity:** O(n)
+**Space complexity:** O(n) (reducible to O(1))
 
 ---
 
-# 7. Algorithm 
+## Algorithm
 
 ```pseudo
-FASTEST-WAY(a, t, e, x, n)
+FASTEST-WAY(a, t, e, x, n):
+    f1[1] = e1 + a1,1
+    f2[1] = e2 + a2,1
 
-f1[1] = e1 + a1,1
-f2[1] = e2 + a2,1
+    for j = 2 to n
+        f1[j] = min(
+            f1[j-1] + a1,j,
+            f2[j-1] + t2,j-1 + a1,j
+        )
 
-for j = 2 → n
+        f2[j] = min(
+            f2[j-1] + a2,j,
+            f1[j-1] + t1,j-1 + a2,j
+        )
 
-    f1[j] = min(
-        f1[j-1] + a1,j,
-        f2[j-1] + t2,j-1 + a1,j
-    )
-
-    f2[j] = min(
-        f2[j-1] + a2,j,
-        f1[j-1] + t1,j-1 + a2,j
-    )
-
-return min(f1[n] + x1, f2[n] + x2)
+    return min(f1[n] + x1, f2[n] + x2)
 ```
 
 ---
 
-# 8. Path Reconstruction 
+## Path Reconstruction
 
 We store decision arrays:
-
 ```
 l1[j] = line chosen before station j if finishing at line1
 l2[j] = line chosen before station j if finishing at line2
@@ -166,7 +155,7 @@ Backtrack from final answer.
 
 ---
 
-# 9. Mermaid — Decision Flow
+## Decision Flow
 
 ```mermaid
 flowchart TD
@@ -188,42 +177,36 @@ E --> F
 
 ---
 
-# 10. Why DP works here 
+## Why DP Works Here
 
-Problem exhibits:
-
-### Optimal substructure
-
+### Optimal Substructure
 Best path to station j uses best path to j-1.
 
-### Overlapping subproblems
-
+### Overlapping Subproblems
 Same sub-results reused many times.
 
-### State definition
-
+### State Definition
 State = minimum time to reach station j on line i.
 
 ---
 
-# 11. Pattern Recognition (Interview Insight) 
+## Pattern Recognition
 
 This problem teaches a general DP pattern:
-
-> sequential decisions with optional switching cost
+> Sequential decisions with optional switching cost
 
 Similar patterns appear in:
 
-| Problem                 | similarity         |
+| Problem                 | Similarity          |
 | ----------------------- | ------------------ |
-| CPU scheduling          | switching overhead |
-| lane switching          | path optimization  |
-| stock trading with fees | switching penalty  |
-| DP on grid              | multiple paths     |
+| CPU scheduling          | switching overhead|
+| Lane switching         | path optimization |
+| Stock trading with fees| switching penalty |
+| DP on grid             | multiple paths    |
 
 ---
 
-# 12. Minimal Implementation (C++)
+## Minimal Implementation (C++)
 
 ```cpp
 #include <vector>
@@ -248,4 +231,3 @@ int fastest_way(const vector<int>& a1, const vector<int>& a2,
     return min(f1[n-1] + x1, f2[n-1] + x2);
 }
 ```
-
