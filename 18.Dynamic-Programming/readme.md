@@ -22,6 +22,7 @@ There are multiple standard topics, let's take alook at them one-by-one:
 [Longest Increasing SubSequence](./LIS.md)
 [Path in a Grid](./path-grid.md)
 [Edit Distance](./EditDist.md)
+[Longest Common SubSequence](./LCS.md)
 
 
 Problems:
