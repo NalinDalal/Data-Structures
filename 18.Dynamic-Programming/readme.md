@@ -25,17 +25,9 @@ A dynamic-programming algorithm solves every subproblem just once and then saves
 - [Path in a Grid](./path-grid.md)
 - [Edit Distance](./EditDist.md)
 - [Longest Common Subsequence](./LCS.md)
-
----
-
-## Practice Problems
-
-- Fibonacci (top-down + bottom-up)
-- Coin change (min coins)
-- Dice combinations (CSES)
-
----
-
-## Reference
-
-https://www.youtube.com/playlist?list=PLcXpkI9A-RZI-xF76L0sZq_u-k_yHz8pd
+- [Matrix Chain Multiplication](./matrix-chain-mul.md)
+- [Optimal Binary Search Tree](./optimal-bst.md)
+- [DP on Tree](./dp-tree.md)
+- [Coin Problems](./coin.md)
+- [Knapsack Problems](./knapsack.md)
+- [Counting Tiles](./count-tiles.md)

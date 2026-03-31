@@ -36,13 +36,11 @@
 
 [17. Graph](./17.Graph/readme.md)
 
----
-
-Ongoing:
 [18.Dynamic Programming](./18.Dynamic-Programming/readme.md)
 
 ---
 
+to start:
 [19.Greedy]
 [20.NP Hardness]
 
