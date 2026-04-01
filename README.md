@@ -38,10 +38,9 @@
 
 [18.Dynamic Programming](./18.Dynamic-Programming/readme.md)
 
----
+[19.Greedy](./19.Greedy/readme.md)
 
 to start:
-[19.Greedy]
 [20.NP Hardness]
 
 ## Problem Sheets
@@ -55,3 +54,13 @@ just take cf and practice min 50-60 problems for that particular algo
 - [Striver’s CP Sheet](https://takeuforward.org/interview-experience/strivers-cp-sheet)
 
 [standard material](https://www.youtube.com/playlist?list=PLrS21S1jm43igE57Ye_edwds_iL7ZOAG4)
+
+
+-----
+
+remaining:
+
+Algorithms JeffE: chap 4, 12
+cormen: chap 16, 17, 31, 33, 34 
+cp handbook: chap 6, 21, 22, 24, 25, 29, 30
+steven halim: chap 7, 9
