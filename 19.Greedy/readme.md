@@ -41,7 +41,6 @@ CP Handbook: 57-64
 
 | Date | Day | Topic |
 |------|-----|-------|
-| Apr 2 | Thu | Task Scheduling (Cormen 16.5) |
 | Apr 3 | Fri | Scheduling Classes (Book 4.2) + CP 6.2 |
 | Apr 4 | Sat | Buffer / catch up |
 | Apr 5 | Sun | Rest |
