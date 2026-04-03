@@ -6,13 +6,13 @@ Greedy won't always lead to optimal solution
 -----
 
 [Activity Selection](./ActivitySelection.md)
+[Task Scheduling Algorithms](./TaskScheduling.md)
+[Scheduling Classes](./SchedulingClasses.md)
 
 -----
 
-
 Algorithms: Chap 4(159-175)
 4.1 StoringFilesonTape........................... 159
-4.2 SchedulingClasses ............................ 161
 4.3 GeneralPattern .............................. 164
 4.4 HuffmanCodes .............................. 165
 4.5 StableMatching.............................. 170
@@ -27,29 +27,24 @@ Cormen Algorithms: chap 16(392-427)
 
 
 CP Handbook: 57-64
-
 6 Greedy algorithms 57
 6.1 Coinproblem ................................ 57 
-6.2 Scheduling.................................. 58 
 6.3 Tasksanddeadlines............................ 60 
 6.4 Minimizingsums.............................. 61
 6.5 Datacompression ............................. 62
 
 ---
 
-## Study Schedule (Apr 1 - Apr 14)
+## Study Schedule (Apr 1 - Apr 12)
 
 | Date | Day | Topic |
 |------|-----|-------|
-| Apr 3 | Fri | Scheduling Classes (Book 4.2) + CP 6.2 |
 | Apr 4 | Sat | Buffer / catch up |
-| Apr 5 | Sun | Rest |
-| Apr 6 | Mon | Tasks & Deadlines (CP 6.3) |
-| Apr 7 | Tue | Coin Problem (CP 6.1) |
-| Apr 8 | Wed | Minimizing Sums (CP 6.4) |
-| Apr 9 | Thu | Huffman Codes (Book 4.4 + Cormen 16.3 + CP 6.5) |
-| Apr 10 | Fri | Stable Matching (Book 4.5) |
-| Apr 11 | Sat | Buffer / catch up |
-| Apr 12 | Sun | Rest |
-| Apr 13 | Mon | General Pattern (Book 4.3) + Theoretical Foundations (Cormen 16.2, 16.4) |
-| Apr 14 | Tue | Final review + untagged problems |
+| Apr 5 | Sun | Tasks & Deadlines (CP 6.3)  |
+| Apr 6 | Mon | Coin Problem (CP 6.1)|
+| Apr 7 | Tue | Minimizing Sums (CP 6.4) |
+| Apr 8 | Wed | Huffman Codes (Book 4.4 + Cormen 16.3 + CP 6.5) |
+| Apr 9 | Thu | Stable Matching (Book 4.5)  |
+| Apr 10 | Fri | Buffer / catch up|
+| Apr 11 | Sat | General Pattern (Book 4.3) + Theoretical Foundations (Cormen 16.2, 16.4)  |
+| Apr 12 | Sun | Final review + untagged problems  |

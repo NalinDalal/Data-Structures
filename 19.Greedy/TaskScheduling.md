@@ -57,7 +57,7 @@ Therefore $A'$ is independent, completing the proof that $(S, \mathcal{l})$ is a
 
 ## Greedy Algorithm
 
-By Theorem 16.11, a greedy algorithm finds a **maximum-weight independent set** $A$. The tasks in $A$ become the early tasks in the optimal schedule.
+A greedy algorithm finds a **maximum-weight independent set** $A$. The tasks in $A$ become the early tasks in the optimal schedule.
 
 - Running time: $O(n^2)$ using GREEDY — each of the $O(n)$ independence checks takes $O(n)$ time
 - A faster $O(n \log n)$ implementation exists (Problem 16-4)
