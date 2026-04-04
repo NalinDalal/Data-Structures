@@ -9,6 +9,7 @@ Greedy won't always lead to optimal solution
 [Task Scheduling Algorithms](./TaskScheduling.md)
 [Scheduling Classes](./SchedulingClasses.md)
 [Task & Deadline](./TaskDeadline.md)
+[Coin Problem](./coin.md)
 
 -----
 
@@ -24,12 +25,10 @@ Cormen Algorithms: chap 16(392-427)
 16.2 Elements of the greedy strategy 379
 16.3 Huffman codes 385
 16.4 Theoretical foundations for greedy methods 393
-16.5 A task-scheduling problem 399
 
 
 CP Handbook: 57-64
 6 Greedy algorithms 57
-6.1 Coinproblem ................................ 57 
 6.4 Minimizingsums.............................. 61
 6.5 Datacompression ............................. 62
 
@@ -39,7 +38,6 @@ CP Handbook: 57-64
 
 | Date | Day | Topic |
 |------|-----|-------|
-| Apr 4 | Sat | Coin Problem (CP 6.1) |
 | Apr 5 | Sun | Minimizing Sums (CP 6.4)  |
 | Apr 6 | Mon | Huffman Codes (Book 4.4 + Cormen 16.3 + CP 6.5)|
 | Apr 7 | Tue | Stable Matching (Book 4.5)  |

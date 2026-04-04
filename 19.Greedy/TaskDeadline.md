@@ -177,6 +177,5 @@ Different problem: you can **skip** tasks, and want to maximise the number of ta
 | Deadlines matter for | Computing the score, not the order |
 | Proof technique | Exchange argument |
 | Time complexity | O(n log n) |
-| CSES problem | [Tasks and Deadlines](https://cses.fi/problemset/task/1630) |
 
 > **Key takeaway**: Whenever you see a "score = deadline − finish\_time" formulation with no option to skip tasks, sort by duration. The exchange argument proof is the template to verify any greedy ordering claim.
