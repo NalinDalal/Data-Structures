@@ -40,8 +40,7 @@
 
 [19.Greedy](./19.Greedy/readme.md)
 
-to start:
-[20.NP Hardness]
+---
 
 ## Problem Sheets
 
@@ -55,12 +54,27 @@ just take cf and practice min 50-60 problems for that particular algo
 
 [standard material](https://www.youtube.com/playlist?list=PLrS21S1jm43igE57Ye_edwds_iL7ZOAG4)
 
-
 -----
 
 remaining:
 
 Algorithms JeffE: chap 4(Greedy:ongoing), 12(NP Hard)
-cormen: chap 16(Greedy:ongoing), 17(Amortized Analysis), 31(Number Theory), 33(Computational Geometry), 34(NP Completeness) 
-cp handbook: chap 6(Greedy), 21(Number Theory), 22(Combinatorics), 24(Probability), 25(Game Theory), 29(Geomtry), 30(Sweep Line Algo)
+cormen: chap 16(Greedy:ongoing), 17(Amortized Analysis- skip), 31(Number Theory), 33(Computational Geometry), 34(NP Completeness) 
+cp handbook: chap 6(Greedy:ongoing), 21(Number Theory), 22(Combinatorics), 24(Probability), 25(Game Theory), 29(Geomtry), 30(Sweep Line Algo)
 steven halim: chap 7(Computational Geometry), 9(Other topics)
+
+
+Greedy
+
+Number Theory
+
+Combinatorics
+
+Probability
+
+Game Theory
+
+Computational Geometry
+Sweep line Algorithms
+
+NP at very last

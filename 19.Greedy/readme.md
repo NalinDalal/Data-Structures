@@ -10,6 +10,7 @@ Greedy won't always lead to optimal solution
 [Scheduling Classes](./SchedulingClasses.md)
 [Task & Deadline](./TaskDeadline.md)
 [Coin Problem](./coin.md)
+[Minimizing Sums](./MinimizingSums.md)
 
 -----
 
@@ -29,7 +30,6 @@ Cormen Algorithms: chap 16(392-427)
 
 CP Handbook: 57-64
 6 Greedy algorithms 57
-6.4 Minimizingsums.............................. 61
 6.5 Datacompression ............................. 62
 
 ---
@@ -38,7 +38,6 @@ CP Handbook: 57-64
 
 | Date | Day | Topic |
 |------|-----|-------|
-| Apr 5 | Sun | Minimizing Sums (CP 6.4)  |
 | Apr 6 | Mon | Huffman Codes (Book 4.4 + Cormen 16.3 + CP 6.5)|
 | Apr 7 | Tue | Stable Matching (Book 4.5)  |
 | Apr 8 | Wed | Buffer / catch up |
