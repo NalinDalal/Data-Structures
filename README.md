@@ -58,13 +58,12 @@ just take cf and practice min 50-60 problems for that particular algo
 
 remaining:
 
-Algorithms JeffE: chap 4(Greedy:ongoing), 12(NP Hard)
-cormen: chap 16(Greedy:ongoing), 17(Amortized Analysis- skip), 31(Number Theory), 33(Computational Geometry), 34(NP Completeness) 
-cp handbook: chap 6(Greedy:ongoing), 21(Number Theory), 22(Combinatorics), 24(Probability), 25(Game Theory), 29(Geomtry), 30(Sweep Line Algo)
+Algorithms JeffE: chap 12(NP Hard)
+cormen: chap 17(Amortized Analysis- skip), 31(Number Theory), 33(Computational Geometry), 34(NP Completeness) 
+cp handbook: chap 21(Number Theory), 22(Combinatorics), 24(Probability), 25(Game Theory), 29(Geomtry), 30(Sweep Line Algo)
 steven halim: chap 7(Computational Geometry), 9(Other topics)
 
 
-Greedy
 
 Number Theory
 

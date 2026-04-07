@@ -38,7 +38,7 @@ New optimal encoding: `AABACDACA` → `001100101110100` → 15 bits.
 ## Huffman Coding
 
 A greedy algorithm that constructs an **optimal prefix-free code** for compressing a given string.
-
+It is used for **lossless data compression**
 The algorithm builds a **full binary tree** (a *trie*) based on character frequencies. Each character's codeword is the path from root to its leaf:
 - Left child / left move → bit `0`
 - Right child / right move → bit `1`
@@ -49,7 +49,51 @@ $$B(T) = \sum_{c \in C} f(c) \cdot d_T(c)$$
 
 where $f(c)$ is frequency and $d_T(c)$ is depth of character $c$'s leaf.
 
+ It encodes characters using variable-length bit codes based on their frequencies — characters that appear more often get shorter codes.
+
+- **Frequent characters** get **shorter codes**
+- **Rare characters** get **longer codes**
+
+- For instance, in English text, `'e'` is more common than `'z'`
+- Encoding `'e'` as `10` and `'z'` as `111101001` helps reduce average bit length.
+
+
+This reduces the total number of bits required to represent the input.
+
 **Algorithm:** Repeatedly merge the two least-frequent nodes.
+
+`Compression rate = (Original Size - Compressed Size) / Original Size`
+
+
+```
+Huffman(){
+for(){ each symbol create a tree with a single root node and order all trees
+according to the probability of symbol occurrence;}
+while(more than one tree is left){
+take the two trees t1, t2 with the lowest probabilities p1, p2 (p1 ≤ p2)
+and create a tree with t1 and t2 as its children and with
+the probability in the new root equal to p1 + p2;}
+
+    associate 0 with each left branch and 1 with each right branch;
+    create a unique codeword for each symbol by traversing the tree from the root
+        to the leaf containing the probability corresponding to this
+        symbol and by putting all encountered 0s and 1s together;
+
+}
+
+createHuffmanTree(prob){
+    declare the probabilities p1, p2, and the Huffman tree Htree;
+    if (only two probabilities are left in prob){
+        return a tree with p1, p2 in the leaves and p1 + p2 in the root;
+    }
+    else(remove the two smallest probabilities from prob and assign them to p1 and p2;){
+        insert p1 + p2 to prob;
+        Htree = CreateHuffmanTree(prob);
+        in Htree make the leaf with p1 + p2 the parent of two leaves with p1 and p2;
+        return Htree;
+    }
+}
+```
 
 ---
 
@@ -89,6 +133,27 @@ BuildHuffman(f[1..n]):
 ```
 
 **HuffmanEncode**
+
+1. **Frequency Analysis**: Count frequency of each character (optionally with run-length for efficiency)
+2. **Build Min-Heap**: Each character is a node in a priority queue (sorted by frequency)
+3. **Construct Tree**:
+
+   - Repeatedly remove two lowest frequency nodes
+   - Merge into a new node with their combined frequency
+   - Push back into heap
+
+4. **Generate Codes**:
+
+   - Traverse from root to leaves
+   - Assign binary codes (left=0, right=1)
+
+5. **Encode File**:
+
+   - Replace each character with its binary code
+   - Write compressed data to file
+
+
+
 ```
 HuffmanEncode(A[1..k]):
     m ← 1
@@ -106,6 +171,14 @@ HuffmanEncodeOne(x):
 ```
 
 **HuffmanDecode**
+
+1. **Read Huffman Tree from file**
+2. **Read encoded bits** one-by-one
+3. **Traverse Huffman Tree** using 0/1 until a leaf is found
+4. **Output character**, repeat
+
+
+
 ```
 HuffmanDecode(B[1..m]):
     k ← 1
@@ -120,6 +193,32 @@ HuffmanDecode(B[1..m]):
             k ← k + 1
             v ← 2n-1
 ```
+
+
+
+```cpp
+class HuffmanNode {
+  char symbol;
+  unsigned long freq;
+  unsigned long codeword;
+  HuffmanNode *left, *right;
+};
+```
+
+```cpp
+class HuffmanCoding {
+  void compress(char *filename, ifstream &fIn);
+  void decompress(char *filename, ifstream &fIn);
+
+  // Core steps
+  void garnerData(ifstream &);
+  void createHuffmanTree();
+  void createCodewords(HuffmanNode *, unsigned long codeword, int level);
+  void encode(ifstream &);
+  void decode(ifstream &);
+};
+```
+
 
 ---
 
@@ -223,10 +322,24 @@ Final codewords (path from root to leaf):
 
 ---
 
-## Correctness
+## Advantages
 
-**Lemma 16.2 (Greedy-choice property):** Let x and y be the two lowest-frequency characters. There exists an optimal prefix code where x and y are sibling leaves at maximum depth — so it is always safe to merge them first.
+- Efficient for repetitive data
+- Lossless (no data loss)
+- Simple to implement
 
-**Lemma 16.3 (Optimal substructure):** After merging x and y into a new character z with $f[z] = f[x] + f[y]$, an optimal code for the reduced alphabet C′ yields an optimal code for C by expanding z back into x and y. Formally: $B(T) = B(T') + f[x] + f[y]$.
 
-**Theorem 16.4:** Procedure HUFFMAN produces an optimal prefix code. *(Proof follows immediately from Lemmas 16.2 and 16.3.)*
+## Limitations
+
+- Needs to store Huffman Tree in file (adds overhead)
+- Not ideal for small or non-repetitive data
+- Slower compared to dictionary-based methods (e.g., LZ77) for some inputs
+
+## Applications
+
+- ZIP File Compression
+- JPEG Image Encoding (as entropy coder)
+- MP3/MP4 Compression
+- Data transmission (where bandwidth is expensive)
+
+
