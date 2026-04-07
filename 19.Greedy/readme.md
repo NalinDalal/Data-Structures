@@ -12,13 +12,13 @@ Greedy won't always lead to optimal solution
 [Coin Problem](./coin.md)
 [Minimizing Sums](./MinimizingSums.md)
 [Data Compression](./DataCompression.md)
+[Stable Matching](./StableMatch.md)
 
 -----
 
 Algorithms: Chap 4(159-175)
 4.1 StoringFilesonTape........................... 159
 4.3 GeneralPattern .............................. 164
-4.5 StableMatching.............................. 170
 
 
 Cormen Algorithms: chap 16(392-427)
@@ -32,7 +32,6 @@ Cormen Algorithms: chap 16(392-427)
 
 | Date | Day | Topic |
 |------|-----|-------|
-| Apr 7 | Tue | Stable Matching (Book 4.5)  |
-| Apr 8 | Wed | Buffer / catch up |
+| Apr 8 | Wed | Storing Files on Tape (Book 4.1) |
 | Apr 9 | Thu | General Pattern (Book 4.3) + Theoretical Foundations (Cormen 16.2, 16.4) |
 | Apr 10 | Fri | Final review + untagged problems|
