@@ -1,7 +1,6 @@
-Number Theory
+# Number Theory
+
 cormen: chap 31(pdf: 871-927)
-modular arithmetic
-modular linear equation
 chinese remainder theorem
 power of element 
 RSA
@@ -13,17 +12,10 @@ Modular arithmetic
 Solving equations
 other things
 
-steven halim: chap 5(pdf: 235-242)
-modulo arithmetic
+steven halim: chap 5(pdf: 242)
 euclid: linear diophantine equation
 
 ------
-
-Day 3 — modular arithmetic core 
-• modular arithmetic rules
-• modulo operations properties
-• modular inverse
-• fast exponentiation
 
 Day 4 — linear equations + Diophantine 
 • modular linear equation
@@ -49,3 +41,4 @@ Day 6 — RSA, primality, factorization intuition
 [Least Common Multiple](LCM.md)
 [Sieve of Eratosthenes](./sieve-eratosthenes.md)
 [Primes & Factors](./prime-factors.md)
+[Modular Arithmetic](modulo.md)
