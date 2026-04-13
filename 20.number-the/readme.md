@@ -7,20 +7,7 @@ RSA
 Primality testing
 Integer factorization
 
-cp handbook: chap 21(pdf: 207-216)
-Modular arithmetic
-Solving equations
-other things
-
-steven halim: chap 5(pdf: 242)
-euclid: linear diophantine equation
-
 ------
-
-Day 4 — linear equations + Diophantine 
-• modular linear equation
-• linear Diophantine equation
-• solving ax ≡ b (mod m)
 
 Day 5 — Chinese Remainder Theorem + structure of modulo
 • Chinese remainder theorem
@@ -42,3 +29,4 @@ Day 6 — RSA, primality, factorization intuition
 [Sieve of Eratosthenes](./sieve-eratosthenes.md)
 [Primes & Factors](./prime-factors.md)
 [Modular Arithmetic](modulo.md)
+[Linear Eqn](./linear-eqn.md)
