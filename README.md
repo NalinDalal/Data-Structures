@@ -54,7 +54,7 @@ just take cf and practice min 50-60 problems for that particular algo
 - [CSES Problem Set](https://cses.fi/problemset?s=08)
 - [Striver’s CP Sheet](https://takeuforward.org/interview-experience/strivers-cp-sheet)
 
-[standard material](https://www.youtube.com/playlist?list=PLrS21S1jm43igE57Ye_edwds_iL7ZOAG4)
+[standard material-Pavel Marvin](https://www.youtube.com/playlist?list=PLrS21S1jm43igE57Ye_edwds_iL7ZOAG4)
 
 -----
 
@@ -62,17 +62,12 @@ remaining:
 
 Algorithms JeffE: chap 12(NP Hard)
 cormen: chap 33(Computational Geometry), 34(NP Completeness) 
-cp handbook: chap 22(Combinatorics), 24(Probability), 25(Game Theory), 29(Geomtry), 30(Sweep Line Algo)
+cp handbook: chap 29(Geometry), 30(Sweep Line Algo)
 steven halim: chap 7(Computational Geometry), 9(Other topics)
 
 
-Combinatorics
-
-Probability
-
-Game Theory
-
 Computational Geometry
+
 Sweep line Algorithms
 
 NP at very last
