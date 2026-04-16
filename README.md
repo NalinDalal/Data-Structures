@@ -42,6 +42,8 @@
 
 [20.Number Theory](./20.number-the/readme.md)
 
+[21. Geometry](./21.Geometry/readme.md)
+
 ---
 
 ## Problem Sheets
@@ -60,14 +62,13 @@ just take cf and practice min 50-60 problems for that particular algo
 
 remaining:
 
-Algorithms JeffE: chap 12(NP Hard)
-cormen: chap 33(Computational Geometry), 34(NP Completeness) 
-cp handbook: chap 29(Geometry), 30(Sweep Line Algo)
-steven halim: chap 7(Computational Geometry), 9(Other topics)
-
-
-Computational Geometry
-
 Sweep line Algorithms
+cp handbook chap 30
 
-NP at very last
+NP
+cormen chap 34
+Algorithms JeffE: chap 12(NP Hard)
+
+Other topics
+steven halim chap 9
+
