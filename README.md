@@ -58,17 +58,3 @@ just take cf and practice min 50-60 problems for that particular algo
 
 [standard material-Pavel Marvin](https://www.youtube.com/playlist?list=PLrS21S1jm43igE57Ye_edwds_iL7ZOAG4)
 
------
-
-remaining:
-
-Sweep line Algorithms
-cp handbook chap 30
-
-NP
-cormen chap 34
-Algorithms JeffE: chap 12(NP Hard)
-
-Other topics
-steven halim chap 9
-
