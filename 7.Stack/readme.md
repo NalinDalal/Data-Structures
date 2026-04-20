@@ -88,6 +88,67 @@ STACK-EMPTY(S):
 ```
 
 ---
+---
+
+### Amortized Analysis (Dynamic Stack)
+
+When stack is implemented using dynamic array:
+
+- Push is usually **O(1)**
+- But sometimes **O(n)** (when resizing happens)
+
+
+#### Resizing Logic
+
+When array is full:
+```
+new_capacity = 2 * old_capacity
+```
+
+- Copy all elements → O(n)
+- Then insert new element
+
+
+#### Total Cost Over m Operations
+
+Worst case:
+- Some pushes take O(n)
+- Most take O(1)
+
+Total cost:
+```
+T ≤ m + 2m = 3m
+```
+
+
+#### Amortized Cost
+
+```
+Amortized push = O(1)
+```
+
+Even though individual operation can be O(n),  
+**average per operation stays constant**
+
+
+#### Intuition
+
+Resizing happens rarely:
+
+```
+1 + 2 + 4 + 8 + ... + n ≈ 2n
+```
+
+Total copying cost is bounded
+
+
+#### Key Takeaway
+
+- push → O(1) amortized  
+- pop → O(1)  
+- resizing does NOT affect overall complexity
+
+---
 
 ## 3. Stack Visual Representation (Mermaid)
 
@@ -129,6 +190,104 @@ sequenceDiagram
     Stack->>Stack: pop() → removes 20
     Note right of Stack: Top = 10
 ```
+
+---
+
+### Persistent Stack
+
+A **persistent stack** preserves previous versions after every operation  
+(no updates are destructive)
+
+
+#### Idea
+
+Instead of modifying the stack:
+- Create a **new version** on every push/pop
+- Old versions remain accessible
+
+Uses **linked structure** (not array)
+
+
+#### Structure
+
+```
+Node {
+    value
+    next (pointer to previous top)
+}
+```
+
+Each version is just a pointer to the top node
+
+
+#### Push
+
+```
+new_top = new Node(x)
+new_top.next = old_top
+```
+
+
+#### Pop
+
+```
+new_top = old_top.next
+```
+
+
+#### Code
+
+```cpp
+struct Node {
+    int val;
+    Node* next;
+    Node(int v, Node* n) : val(v), next(n) {}
+};
+
+Node* push(Node* top, int x) {
+    return new Node(x, top);
+}
+
+Node* pop(Node* top) {
+    if (!top) return NULL;
+    return top->next;
+}
+```
+
+
+#### Example
+
+```
+version0: empty
+
+version1 = push(version0, 1) → [1]
+version2 = push(version1, 2) → [2,1]
+version3 = pop(version2)     → [1]
+
+version1 is still intact
+version2 is still intact
+```
+
+
+#### Complexity
+
+- push → O(1)
+- pop → O(1)
+- space → O(n) (new node per operation)
+
+
+#### Key Insight
+
+- No copying of entire stack
+- Only **new nodes are created**
+- Old structure is reused (structural sharing)
+
+
+#### When Used
+
+- Undo/redo systems
+- Version control systems
+- Functional programming
 
 ---
 
