@@ -427,6 +427,76 @@ int k = x+1;
 
 ---
 
+### Ternary Search (Unimodal Arrays)
+
+Used to find **minimum / maximum in a unimodal array**  
+(array first increases then decreases OR vice versa)
+
+#### When to use
+- Array is **unimodal (bitonic)**
+- Want to find **peak / minimum**
+- Not for normal searching (use binary search there)
+
+
+#### Key Idea
+
+Divide array into **3 parts** using two mid points:
+
+```
+mid1 = l + (r - l) / 3
+mid2 = r - (r - l) / 3
+```
+
+Compare:
+- If `arr[mid1] < arr[mid2]` → peak lies on **right side**
+- Else → peak lies on **left side**
+
+Reduce search space each step :contentReference[oaicite:0]{index=0}  
+
+
+#### Code (Find Maximum / Peak)
+
+```cpp
+int ternarySearchPeak(vector<int>& arr) {
+    int l = 0, r = arr.size() - 1;
+
+    while (l < r) {
+        int mid1 = l + (r - l) / 3;
+        int mid2 = r - (r - l) / 3;
+
+        if (arr[mid1] < arr[mid2])
+            l = mid1 + 1;
+        else
+            r = mid2 - 1;
+    }
+
+    return l; // index of peak
+}
+```
+
+
+```
+[1, 3, 7, 12, 9, 5, 2] → peak = 12
+[9, 7, 5, 2, 3, 6, 10] → minimum = 2
+```
+
+#### Complexity
+- Time: O(log n)
+- Space: O(1)
+
+---
+
+#### Binary vs Ternary
+
+| Binary Search | Ternary Search |
+|--------------|----------------|
+| Monotonic array | Unimodal array |
+| 1 mid | 2 mids |
+| Find element | Find min/max |
+
+
+---
+
 ### 4.2 Sorting
 
 #### Bubble Sort – O(n²)
