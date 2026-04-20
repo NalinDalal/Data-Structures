@@ -307,6 +307,59 @@ graph LR
     E["40 (rear)"] --> A["10 (old, overwritten)"]
     F[front →] --> E
 ```
+---
+---
+
+### Amortized Analysis (Dynamic Queue)
+
+For queue implemented using dynamic array:
+
+- Enqueue is usually **O(1)**
+- Occasionally **O(n)** due to resizing
+
+---
+
+#### Resizing Strategy
+
+When full:
+```
+new_capacity = 2 * old_capacity
+```
+
+- Copy all elements → O(n)
+- Maintain correct order (important in queue)
+
+---
+
+#### Total Cost Over m Operations
+
+```
+T ≤ 3m
+```
+
+---
+
+#### Amortized Cost
+
+```
+Enqueue = O(1)
+Dequeue = O(1)
+```
+
+---
+
+#### Important Note
+
+In queue:
+- Shifting elements every time → BAD (O(n))
+- Use **circular queue** to maintain O(1)
+
+---
+
+#### Key Takeaway
+
+- Always use circular array or deque
+- Dynamic resizing still keeps operations O(1) amortized
 
 ---
 
