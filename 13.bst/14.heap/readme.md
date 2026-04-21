@@ -1,8 +1,4 @@
-# Heap Data Structure
-
----
-
-### 📌 What is a Heap?
+# Heap
 
 A **Heap** is a special **complete binary tree** where the value at each node satisfies the **heap property**:
 
@@ -13,28 +9,28 @@ A **Heap** is a special **complete binary tree** where the value at each node sa
 
 ---
 
-### 🧠 Why Use a Heap?
+###  Why Use a Heap?
 
-- 🔍 **Fast access to the min/max element** in O(1)
-- 🚀 **Priority Queues** (most common real-world use)
-- 📉 Sorting (**Heap Sort** algorithm)
-- 🔢 Efficient **median**, **top K**, and **Dijkstra’s shortest path**
+-  **Fast access to the min/max element** in O(1)
+-  **Priority Queues** (most common real-world use)
+-  Sorting (**Heap Sort** algorithm)
+-  Efficient **median**, **top K**, and **Dijkstra’s shortest path**
 
 ---
 
-### 🧱 Heap Properties
+###  Heap Properties
 
-1. ✅ **Complete Binary Tree**: All levels are full except maybe the last, which is filled **left to right**
-2. ✅ **Heap Property**:
+1.  **Complete Binary Tree**: All levels are full except maybe the last, which is filled **left to right**
+2.  **Heap Property**:
 
    - **Max-Heap**: `parent >= children`
    - **Min-Heap**: `parent <= children`
 
-3. ✅ Stored efficiently in **arrays**
+3.  Stored efficiently in **arrays**
 
 ---
 
-### 🧮 Heap as Array
+###  Heap as Array
 
 Heap is **not built with pointers**, it's often implemented using arrays.
 
@@ -129,7 +125,7 @@ graph TD
 
 ---
 
-### 🔄 Heapify
+### Heapify
 
 `heapify()` is used to fix the heap from a node downward.
 
@@ -137,7 +133,7 @@ For **building a heap** from array in O(n), we apply heapify **bottom-up**.
 
 ---
 
-## ⏱️ Time & Space Complexity
+## Time & Space Complexity
 
 | Operation      | Time     | Space |
 | -------------- | -------- | ----- |
@@ -148,7 +144,7 @@ For **building a heap** from array in O(n), we apply heapify **bottom-up**.
 
 ---
 
-### 🔄 Build Heap in O(n)? Yes!
+### Build Heap in O(n)? Yes!
 
 We can **build a heap from an array** using **heapify from bottom up**:
 
@@ -160,14 +156,14 @@ for (int i = n/2 - 1; i >= 0; i--) {
 
 ---
 
-### 📦 Priority Queue = Heap with Interface
+### Priority Queue = Heap with Interface
 
 `std::priority_queue` in C++ = Max-Heap by default
 Use custom comparator to create min-heap or custom objects.
 
 ---
 
-### 🔁 Heap Sort
+### Heap Sort
 
 **Steps**:
 
@@ -181,7 +177,7 @@ Use custom comparator to create min-heap or custom objects.
 
 ---
 
-### ✅ C++ Code Example – Max Heap
+### C++ Code Example – Max Heap
 
 ```cpp
 void heapify(vector<int>& arr, int n, int i) {
@@ -207,19 +203,19 @@ void buildHeap(vector<int>& arr, int n) {
 
 ---
 
-### 📚 Applications of Heap
+### Applications of Heap
 
-- ✅ **Priority Queues**
-- ✅ **Dijkstra's Algorithm** (Shortest path)
-- ✅ **Huffman Coding**
-- ✅ **Median in stream**
-- ✅ **K largest/smallest elements**
-- ✅ **Job Scheduling**
-- ✅ **Load Balancing**
+-  **Priority Queues**
+-  **Dijkstra's Algorithm** (Shortest path)
+-  **Huffman Coding**
+-  **Median in stream**
+-  **K largest/smallest elements**
+-  **Job Scheduling**
+-  **Load Balancing**
 
 ---
 
-## 🔥 Summary
+##  Summary
 
 | Feature       | Description                      |
 | ------------- | -------------------------------- |
@@ -232,7 +228,7 @@ void buildHeap(vector<int>& arr, int n) {
 
 ---
 
-## 🔄 Visual Recap
+## Visual Recap
 
 ### Max-Heap:
 
@@ -272,7 +268,7 @@ After Insert:
 
 ---
 
-### ✅ Advanced Types of Heaps
+### Advanced Types of Heaps
 
 - **Binomial Heap**
 - **Fibonacci Heap**
