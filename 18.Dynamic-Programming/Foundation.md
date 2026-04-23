@@ -65,15 +65,10 @@ If the sub-solution for 6 were not optimal, we could improve the whole solution.
 
 | Problem                        | Optimal Substructure Explanation |
 |--------------------------------|----------------------------------|
-
 | **Fibonacci**                  | `F(n)` is built from `F(n-1) + F(n-2)` — both must be optimal (only one way) |
-
 | **Matrix Chain Multiplication**| Optimal parenthesization of `Ai..Aj` contains optimal parenthesization of sub-chains |
-
 | **Longest Common Subsequence** | LCS of two strings contains LCS of their prefixes/suffixes |
-
-| **0/1 Knapsack**               | Optimal knapsack either includes or excludes item `i`, and the remaining capacity must be optimal |
-
+| **0/1 Knapsack**          | Optimal knapsack either includes or excludes item `i`, and the remaining capacity must be optimal |
 | **Shortest Path in Graph**     | Shortest path from s to t goes through some vertex v, and s→v + v→t must both be shortest |
 
 #### Why Optimal Substructure Matters
