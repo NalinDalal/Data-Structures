@@ -29,6 +29,9 @@ The BST would look like:
 
 ### Key Properties
 
+All values in left subtree < node.val < all values in right subtree
+
+
 | Property          | Description                                            |
 | ----------------- | ------------------------------------------------------ |
 | Search Time       | O(log n) average, O(n) worst                           |
@@ -144,9 +147,9 @@ Time: O(h) where h is height of tree
 
 Three cases:
 
-1. **Leaf Node** – Just delete
-2. **One Child** – Replace node with child
-3. **Two Children** – Replace with **inorder successor** or **predecessor**
+1. **Leaf Node/No Child** –> Just delete
+2. **One Child** –> Replace node with child
+3. **Two Children** –> Replace with **inorder successor** or **predecessor**
 
 ```
 TREE-DELETE(T, z):
@@ -227,12 +230,103 @@ Node* insert(Node* root, int val) {
 
 ---
 
+# Ordered Operations
+
+This is missing from your notes but critical.
+
+## lower_bound(k)
+
+```
+Find smallest value ≥ k
+```
+
+Algorithm:
+
+```
+res = NULL
+node = root
+
+while node:
+    if node.val ≥ k:
+        res = node
+        node = node.left
+    else:
+        node = node.right
+
+return res
+```
+
+Time: `O(h)`
+
+---
+
+## upper_bound(k)
+
+```
+Find smallest value > k
+```
+
+Same logic, just strict comparison.
+
+---
+
+# Range Queries on BST
+
+Add this section explicitly.
+
+## Range Sum / Range Count
+
+```
+sum(l, r) = sum of all values in [l, r]
+```
+
+### Key pruning logic:
+
+```
+if node.val < l:
+    ignore left subtree → go right
+
+if node.val > r:
+    ignore right subtree → go left
+
+if node.val in [l, r]:
+    include node
+    explore both sides
+```
+
+Time:
+
+```
+O(h + k)
+k = number of nodes in range
+```
+
+---
+
+## Important Optimization 
+
+```
+Augment node with subtree_sum
+```
+
+Then:
+
+```
+If entire subtree ∈ [l, r] → take sum directly
+```
+
+This converts many problems from linear to logarithmic.
+
+---
+
 ### Limitations
 
 - **Can become skewed** like a linked list if not balanced
 - Worst-case time = O(n)
 
-To avoid this → Use **Balanced BSTs** (e.g., AVL, Red-Black Tree)
+To guarantee O(log n):
 
----
+Use self-balancing BSTs:
+- AVL Tree
+- Red-Black Tree
 
