@@ -306,3 +306,92 @@ Use when:
 - Operation is invertible (sum, frequency, count)
 - You want simpler code than Segment Tree
 - Range is discrete `[1..n]`
+
+---
+
+# Sparse Table — RMQ
+
+
+## Use Case  
+**Use when:**
+- Static array (no updates)
+- Idempotent operations: min, max, gcd
+
+**Not for:**
+- sum, product, xor → overlap causes double counting
+
+
+## Definition  
+```
+m[i][j] = answer for range [i,  i + 2^j - 1]
+
+i → starting index
+j → power  (block size = 2^j)
+```
+
+
+## Build — O(n log n)  
+**Base:**
+```
+m[i][0] = a[i]
+```
+
+**Transition:**
+```
+m[i][j] = min(
+    m[i        ][j-1],
+    m[i + 2^(j-1)][j-1]
+)
+
+i : 0 .. n-1
+j : 1 .. log n
+```
+
+
+## Precomputation Intuition  
+```
+j=0  [ ][ ][ ][ ][ ][ ][ ][ ]   ← covers 1 element each
+j=1  [    ][    ][    ][    ]    ← covers 2 elements each
+j=2  [        ][        ]        ← covers 4 elements each
+
+Total layers = log n
+```
+
+
+## Query — O(1)  
+```
+len = r - l + 1
+k   = floor(log2(len))
+
+return min(
+    m[l         ][k],   ← block starting at l
+    m[r - 2^k+1 ][k]   ← block ending at r
+)
+```
+
+> Two overlapping blocks of size 2^k fully cover [l, r]
+
+
+## Why Overlap Works  
+```
+min(x, x) = x   → OK to overlap
+sum(x, x) ≠ x   → NOT OK to overlap
+```
+
+
+## Sparse Table vs Segment Tree   
+| | Segment Tree | Sparse Table |
+|---|---|---|
+| Query | O(log n) | O(1) |
+| Update | O(log n) | ✗ not supported |
+| Operations | any | idempotent only |
+
+
+## Complexity Summary 
+```
+Build   →  O(n log n)
+Space   →  O(n log n)
+Query   →  O(1)
+Update  →  not supported
+```
+
