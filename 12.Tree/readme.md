@@ -658,3 +658,11 @@ A tree data structure for dynamic connectivity problems. Uses Euler tour travers
 
 See [3.euler-tour-tree/readme.md](3.euler-tour-tree/readme.md) for details.
 
+---
+
+## Centroid Decomposition
+
+A divide-and-conquer technique on trees that recursively splits the tree at centroids.
+
+See [4.centroid-decomposition/readme.md](4.centroid-decomposition/readme.md) for details.
+
