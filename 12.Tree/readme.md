@@ -650,3 +650,11 @@ $$\text{dist}(5, 8) = 3 + 4 - 2 \cdot 2 = 3$$
 
 > Path: $5 \to 2 \to 6 \to 8$ (length 3) ✓
 
+---
+
+## Euler Tour Tree
+
+A tree data structure for dynamic connectivity problems. Uses Euler tour traversal stored in a balanced BST.
+
+See [3.euler-tour-tree/readme.md](3.euler-tour-tree/readme.md) for details.
+
