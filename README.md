@@ -44,6 +44,8 @@
 
 [21. Geometry](./21.Geometry/readme.md)
 
+[22. Memory Management](./22.memory-management/readme.md)
+
 ---
 
 ## Problem Sheets
