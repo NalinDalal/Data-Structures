@@ -184,6 +184,12 @@ $x^{-1}=x^{m-2}$
 
 
 # Solving Equations
+
+# Matrix Exponentiation
+[See Matrix Exponentiation here](./matrix-exponentiation.md)
+
+# Gaussian Elimination & XOR Basis
+[See Gaussian Elimination here](./gaussian-elimination.md)
 Diophantine equation is an equation of the form
 ax + by= c {a, b and c are constants and the values of x and y should be found so that ax + by= gcd(a,b)}
 

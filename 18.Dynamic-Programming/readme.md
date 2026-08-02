@@ -31,3 +31,4 @@ A dynamic-programming algorithm solves every subproblem just once and then saves
 - [Coin Problems](./coin.md)
 - [Knapsack Problems](./knapsack.md)
 - [Counting Tiles](./count-tiles.md)
+- [Convex Hull Trick](./convex-hull-trick.md)

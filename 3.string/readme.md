@@ -876,6 +876,18 @@ allows us to efficiently check whether two strings are equal.
 
 # Suffix Automaton
 [See Suffix Automaton here](./suffix-automaton.md)
+
+# Z-Algorithm
+[See Z-Algorithm here](./z-algorithm.md)
+
+# KMP Algorithm
+[See KMP here](./kmp.md)
+
+# Manacher's Algorithm
+[See Manacher's here](./manachers.md)
+
+# Palindromic Tree
+[See Palindromic Tree here](./palindromic-tree.md)
 idea is to compare hash values of strings instead of their individual characters.
 
 use **polynomial hashing**
