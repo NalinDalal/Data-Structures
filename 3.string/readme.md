@@ -867,6 +867,15 @@ Time: `O(n)` after SA + LCP is ready.
 
 # String Hashing
 allows us to efficiently check whether two strings are equal.
+
+# Trie (Prefix Tree)
+[See Trie here](./trie.md)
+
+# Suffix Array
+[See Suffix Array construction here](./suffix-array.md)
+
+# Suffix Automaton
+[See Suffix Automaton here](./suffix-automaton.md)
 idea is to compare hash values of strings instead of their individual characters.
 
 use **polynomial hashing**

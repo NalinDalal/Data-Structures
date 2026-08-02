@@ -511,3 +511,9 @@ cout << map.contains("banana");  // false
 - Worst-case O(n) with poor hash function
 - Custom keys require `==` and `hash()` to be defined
 - Bloom/Cuckoo filters are probabilistic — not suitable when exact answers are required
+
+---
+
+# LRU / LFU Cache
+
+[See LRU/LFU Cache here](./lru-cache.md)

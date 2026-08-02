@@ -296,3 +296,8 @@ edges.push_back({4,1,2});
 | **Flows & Cuts** | [Flows and Cuts](./flows-cuts.md) |
 | **Tree Query** | [Tree Query](./tree-query.md) |
 | **Paths** | [Paths](./paths.md) |
+| **Dinic's Algorithm** | [Max Flow (Dinic's)](./dinic.md) |
+| **Disjoint Set Union** | [DSU / Union-Find](./dsu.md) |
+| **Heavy-Light Decomposition** | [HLD](./hld.md) |
+| **A* Search** | [A* Pathfinding](./a-star.md) |
+| **Mo's Algorithm** | [Offline Range Queries](./mos-algorithm.md)

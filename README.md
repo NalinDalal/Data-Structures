@@ -33,6 +33,8 @@
 - [Heap](./16.Excesstree/2.Heap/readme.md)
 - [SegmentTree](./16.Excesstree/4.SegmentTree/readme.md)
 - [Fenwick Tree](./16.Excesstree/3.FenwickTree/readme.md)
+- [Sparse Table](./16.Excesstree/7.SparseTable/readme.md)
+- [Order Statistic Tree](./16.Excesstree/8.OrderStatisticTree/readme.md)
 
 [17. Graph](./17.Graph/readme.md)
 
@@ -45,6 +47,8 @@
 [21. Geometry](./21.Geometry/readme.md)
 
 [22. Memory Management](./22.memory-management/readme.md)
+
+[23. LRU/LFU Cache](./11.hashmap/lru-cache.md)
 
 ---
 
